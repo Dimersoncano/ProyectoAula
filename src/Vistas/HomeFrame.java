@@ -14,43 +14,42 @@ public class HomeFrame extends javax.swing.JFrame {
     
     
     private Modelos.Usuario usuario;
+    private LogicaBilletera logica;
+
      
-    public HomeFrame(Modelos.Usuario usuario) {
+  public HomeFrame(Modelos.Usuario usuario, LogicaBilletera logica) {
     this.usuario = usuario;
+    this.logica = logica;
     initComponents();
-         
-        // Mostrar saludo personalizado
-        BienvenidaLabel.setText("Bienvenido, " + usuario.getNombre());
 
-        // Mostrar saldo si tiene cuenta, o mensaje alternativo
-        if (usuario.getCuenta() != null) {
-            double saldo = usuario.getCuenta().getSaldo();
-            if (saldo >= 0) {
-                SaldoLabel.setText("Saldo: $" + saldo);
-            } else {
-                SaldoLabel.setText("Saldo inválido.");
-            }
-        } else {
-            SaldoLabel.setText("Saldo: sin cuenta asociada.");
-        }
+    // Mostrar saludo personalizado
+    BienvenidaLabel.setText("Bienvenido, " + usuario.getNombre());
 
-        // Ocultar botones si el usuario es admin
-        if (usuario.getRol().equalsIgnoreCase("admin")) {
-            EnviarDineroBoton.setVisible(false);
-            RecargarDineroBoton.setVisible(false);
-            HistorialBoton.setVisible(false);
-        }
-
-        setLocationRelativeTo(null); // Centrar ventana
+    if (usuario.getCuenta() != null) {
+        double saldo = usuario.getCuenta().getSaldo();
+        SaldoLabel.setText(saldo >= 0 ? "Saldo: $" + saldo : "Saldo inválido.");
+    } else {
+        SaldoLabel.setText("Saldo: sin cuenta asociada.");
     }
 
-
-    /**
-     * Creates new form HomeFrame
-     */
-    public HomeFrame() {
-        initComponents();
+    if (usuario.getRol().equalsIgnoreCase("admin")) {
+        EnviarDineroBoton.setVisible(false);
+        RecargarDineroBoton.setVisible(false);
+        HistorialBoton.setVisible(false);
     }
+
+    setLocationRelativeTo(null); // Centrar ventana
+}
+
+  public void actualizarSaldo() {
+    if (usuario.getCuenta() != null) {
+        double saldo = usuario.getCuenta().getSaldo();
+        SaldoLabel.setText("Saldo: $" + saldo);
+    } else {
+        SaldoLabel.setText("Saldo: sin cuenta asociada.");
+    }
+}
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -76,6 +75,11 @@ public class HomeFrame extends javax.swing.JFrame {
         SaldoLabel.setText("Saldo:$");
 
         RecargarDineroBoton.setText("Recargar");
+        RecargarDineroBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RecargarDineroBotonActionPerformed(evt);
+            }
+        });
 
         EnviarDineroBoton.setText("Enviar");
         EnviarDineroBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -85,6 +89,11 @@ public class HomeFrame extends javax.swing.JFrame {
         });
 
         HistorialBoton.setText("Ver Historial");
+        HistorialBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HistorialBotonActionPerformed(evt);
+            }
+        });
 
         CerrarSesionBoton.setText("CerrarSesion");
         CerrarSesionBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -145,14 +154,28 @@ public class HomeFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void EnviarDineroBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarDineroBotonActionPerformed
-        // TODO add your handling code here:
+        new TransferenciaFrame(usuario, logica, this).setVisible(true);
+
     }//GEN-LAST:event_EnviarDineroBotonActionPerformed
 
     private void CerrarSesionBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarSesionBotonActionPerformed
-             new LoginFrame(new LogicaBilletera()).setVisible(true); // ✅ BIEN (pero crea nueva lógica)
-                    this.dispose(); // cerrar sesión actual
+             new LoginFrame(logica).setVisible(true); // ✅ Reutiliza la misma instancia
+this.dispose();
        
     }//GEN-LAST:event_CerrarSesionBotonActionPerformed
+
+    private void RecargarDineroBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RecargarDineroBotonActionPerformed
+        new RecargaFrame(usuario, logica, this).setVisible(true);
+
+
+
+    }//GEN-LAST:event_RecargarDineroBotonActionPerformed
+
+    private void HistorialBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HistorialBotonActionPerformed
+            new HistorialFrame(usuario, this).setVisible(true);
+    this.setVisible(false);
+
+    }//GEN-LAST:event_HistorialBotonActionPerformed
 
   
     

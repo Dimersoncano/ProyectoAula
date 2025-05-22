@@ -7,6 +7,7 @@ package Vistas;
 import javax.swing.JOptionPane;
 import Logica.LogicaBilletera;
 import Modelos.Usuario;
+import Vistas.LoginFrame;
 /**
  *
  * @author Dimerson
@@ -215,43 +216,47 @@ if (!Character.isLetterOrDigit(c)) {
     }//GEN-LAST:event_UsuarioTextKeyTyped
 
     private void RegistrarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarBotonActionPerformed
-         String nombre = NombreText.getText().trim();
-String documento = DocumentoText.getText().trim();
-String usuario = UsuarioText.getText().trim();
-String clave = ContraseñaText.getText().trim();
-String confirmar = ConfimarText.getText().trim();
+        
+    String nombre = NombreText.getText().trim();
+    String documento = DocumentoText.getText().trim();
+    String usuario = UsuarioText.getText().trim();
+    String clave = ContraseñaText.getText().trim();
+    String confirmar = ConfimarText.getText().trim();
 
-// Validaciones básicas
-if (nombre.isEmpty() || documento.isEmpty() || usuario.isEmpty() || clave.isEmpty() || confirmar.isEmpty()) {
-    JOptionPane.showMessageDialog(this, "Todos los campos son obligatorios.");
-    return;
-}
+    // Validaciones básicas
+    if (nombre.isEmpty() || documento.isEmpty() || usuario.isEmpty() || clave.isEmpty() || confirmar.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Todos los campos son obligatorios.");
+        return;
+    }
 
-if (clave.length() < 6) {
-    JOptionPane.showMessageDialog(this, "La contraseña debe tener al menos 6 caracteres.");
-    return;
-}
+    if (clave.length() < 6) {
+        JOptionPane.showMessageDialog(this, "La contraseña debe tener al menos 6 caracteres.");
+        return;
+    }
 
-if (!clave.matches(".*[a-zA-Z].*") || !clave.matches(".*\\d.*")) {
-    JOptionPane.showMessageDialog(this, "La contraseña debe contener letras y números.");
-    return;
-}
+    if (!clave.matches(".*[a-zA-Z].*") || !clave.matches(".*\\d.*")) {
+        JOptionPane.showMessageDialog(this, "La contraseña debe contener letras y números.");
+        return;
+    }
 
-if (!clave.equals(confirmar)) {
-    JOptionPane.showMessageDialog(this, "Las contraseñas no coinciden.");
-    return;
-}
+    if (!clave.equals(confirmar)) {
+        JOptionPane.showMessageDialog(this, "Las contraseñas no coinciden.");
+        return;
+    }
 
-// Crear el usuario
-Modelos.Usuario nuevo = new Modelos.Usuario(nombre, usuario, clave, "cliente");
+    // Crear el usuario
+    Usuario nuevo = new Usuario(nombre, usuario, clave, "cliente");
 
-// Guardarlo en la lógica
-logica.registrarUsuario(nuevo);
+    // Validar duplicado y registrar
+    if (logica.registrarUsuario(nuevo)) {
+        JOptionPane.showMessageDialog(this, "Usuario registrado con éxito.");
+        new LoginFrame(logica).setVisible(true);
+        this.dispose();
+    } else {
+        JOptionPane.showMessageDialog(this, "Ya existe un usuario con ese nombre de cuenta.");
+    }
 
-// Confirmación y volver a Login
-JOptionPane.showMessageDialog(this, "Usuario registrado con éxito.");
-new LoginFrame(logica).setVisible(true);
-this.dispose();        
+       
     }//GEN-LAST:event_RegistrarBotonActionPerformed
 
     

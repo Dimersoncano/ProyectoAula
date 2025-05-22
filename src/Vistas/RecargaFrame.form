@@ -64,11 +64,15 @@
                               <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                               <Component id="RecargaLabel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                              <Component id="jtextRecarga" min="-2" pref="66" max="-2" attributes="0"/>
+                              <Component id="MontoText" min="-2" pref="66" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="196" max="-2" attributes="0"/>
                               <Component id="RecargarBoton" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="VolverBoton" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="161" max="32767" attributes="0"/>
@@ -80,12 +84,14 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jtextRecarga" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="MontoText" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="RecargaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
                       <Component id="RecargarBoton" min="-2" pref="23" max="-2" attributes="0"/>
-                      <EmptySpace pref="145" max="32767" attributes="0"/>
+                      <EmptySpace pref="90" max="32767" attributes="0"/>
+                      <Component id="VolverBoton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -96,15 +102,27 @@
                 <Property name="text" type="java.lang.String" value="ingresa el monto a recargar:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jtextRecarga">
+            <Component class="javax.swing.JTextField" name="MontoText">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtextRecargaActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MontoTextActionPerformed"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="MontoTextKeyTyped"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="RecargarBoton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Recargar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RecargarBotonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="VolverBoton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="volver"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VolverBotonActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

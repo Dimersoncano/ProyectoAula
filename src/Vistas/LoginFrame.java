@@ -173,7 +173,8 @@ try {
         JOptionPane.showMessageDialog(this, "Bienvenido admin: " + u.getNombre());
         // Aquí puedes abrir una ventana PanelAdmin si lo deseas
     } else {
-        new HomeFrame(u).setVisible(true);
+       new HomeFrame(u, logica).setVisible(true); // ✅ correcto
+
     }
     this.dispose();
 } catch (UsuarioNoEncontradoException ex) {

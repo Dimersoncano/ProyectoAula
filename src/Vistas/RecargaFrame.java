@@ -4,18 +4,30 @@
  */
 package Vistas;
 
+import Logica.LogicaBilletera;
+import Modelos.Usuario;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Dimerson
  */
 public class RecargaFrame extends javax.swing.JFrame {
+    
+  private Usuario usuario;
+private LogicaBilletera logica;
+private HomeFrame homeFrame;
 
-    /**
-     * Creates new form RecargaFrame
-     */
-    public RecargaFrame() {
-        initComponents();
-    }
+public RecargaFrame(Usuario usuario, LogicaBilletera logica, HomeFrame homeFrame) {
+    this.usuario = usuario;
+    this.logica = logica;
+    this.homeFrame = homeFrame;
+    initComponents();
+    setLocationRelativeTo(null);
+}
+
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,8 +41,9 @@ public class RecargaFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         RecargaLabel = new javax.swing.JLabel();
-        jtextRecarga = new javax.swing.JTextField();
+        MontoText = new javax.swing.JTextField();
         RecargarBoton = new javax.swing.JButton();
+        VolverBoton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -38,13 +51,30 @@ public class RecargaFrame extends javax.swing.JFrame {
 
         RecargaLabel.setText("ingresa el monto a recargar:");
 
-        jtextRecarga.addActionListener(new java.awt.event.ActionListener() {
+        MontoText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtextRecargaActionPerformed(evt);
+                MontoTextActionPerformed(evt);
+            }
+        });
+        MontoText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                MontoTextKeyTyped(evt);
             }
         });
 
         RecargarBoton.setText("Recargar");
+        RecargarBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RecargarBotonActionPerformed(evt);
+            }
+        });
+
+        VolverBoton.setText("volver");
+        VolverBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VolverBotonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -56,10 +86,13 @@ public class RecargaFrame extends javax.swing.JFrame {
                         .addGap(65, 65, 65)
                         .addComponent(RecargaLabel)
                         .addGap(56, 56, 56)
-                        .addComponent(jtextRecarga, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(MontoText, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(196, 196, 196)
-                        .addComponent(RecargarBoton)))
+                        .addComponent(RecargarBoton))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(VolverBoton)))
                 .addContainerGap(161, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -67,11 +100,13 @@ public class RecargaFrame extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(75, 75, 75)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtextRecarga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MontoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RecargaLabel))
                 .addGap(92, 92, 92)
                 .addComponent(RecargarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                .addComponent(VolverBoton)
+                .addGap(32, 32, 32))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -99,50 +134,62 @@ public class RecargaFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jtextRecargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtextRecargaActionPerformed
+    private void MontoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MontoTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jtextRecargaActionPerformed
+    }//GEN-LAST:event_MontoTextActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RecargaFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RecargaFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RecargaFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RecargaFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void RecargarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RecargarBotonActionPerformed
+        String texto = MontoText.getText().trim();
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new RecargaFrame().setVisible(true);
-            }
-        });
-    }
+if (texto.isEmpty()) {
+    JOptionPane.showMessageDialog(this, "Por favor ingrese un monto.");
+    return;
+}
+
+if (!texto.matches("\\d+(\\.\\d{1,2})?")) {
+    JOptionPane.showMessageDialog(this, "El monto debe ser un número válido (ej: 1000 o 1000.50).");
+    return;
+}
+
+double monto = Double.parseDouble(texto);
+
+if (monto <= 0) {
+    JOptionPane.showMessageDialog(this, "El monto debe ser mayor a 0.");
+    return;
+}
+
+logica.recargarSaldo(usuario, monto);
+JOptionPane.showMessageDialog(this, "Saldo recargado con éxito: $" + monto);
+homeFrame.actualizarSaldo();
+this.dispose();
+
+    }//GEN-LAST:event_RecargarBotonActionPerformed
+
+    private void MontoTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MontoTextKeyTyped
+        char c = evt.getKeyChar();
+if (!Character.isDigit(c) && c != '.' && c != '\b') {
+    evt.consume();
+    getToolkit().beep();
+}
+
+
+
+    }//GEN-LAST:event_MontoTextKeyTyped
+
+    private void VolverBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverBotonActionPerformed
+        this.dispose();            // Cierra la ventana actual
+homeFrame.setVisible(true); // Muestra HomeFrame nuevamente
+    }//GEN-LAST:event_VolverBotonActionPerformed
+
+   
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField MontoText;
     private javax.swing.JLabel RecargaLabel;
     private javax.swing.JButton RecargarBoton;
+    private javax.swing.JButton VolverBoton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jtextRecarga;
     // End of variables declaration//GEN-END:variables
 }

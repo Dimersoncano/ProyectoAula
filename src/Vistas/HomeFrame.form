@@ -94,6 +94,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Recargar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RecargarDineroBotonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="EnviarDineroBoton">
           <Properties>
@@ -107,6 +110,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Ver Historial"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="HistorialBotonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="CerrarSesionBoton">
           <Properties>
