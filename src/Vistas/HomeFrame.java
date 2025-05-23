@@ -5,6 +5,7 @@
 package Vistas;
 
 import Logica.LogicaBilletera;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,7 +16,7 @@ public class HomeFrame extends javax.swing.JFrame {
     
     private Modelos.Usuario usuario;
     private LogicaBilletera logica;
-
+    private int mouseX, mouseY;
      
   public HomeFrame(Modelos.Usuario usuario, LogicaBilletera logica) {
     this.usuario = usuario;
@@ -35,7 +36,7 @@ public class HomeFrame extends javax.swing.JFrame {
     if (usuario.getRol().equalsIgnoreCase("admin")) {
         EnviarDineroBoton.setVisible(false);
         RecargarDineroBoton.setVisible(false);
-        HistorialBoton.setVisible(false);
+        //HistorialBoton.setVisible(false);
     }
 
     setLocationRelativeTo(null); // Centrar ventana
@@ -60,45 +61,96 @@ public class HomeFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel8 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         BienvenidaLabel = new javax.swing.JLabel();
         SaldoLabel = new javax.swing.JLabel();
         RecargarDineroBoton = new javax.swing.JButton();
         EnviarDineroBoton = new javax.swing.JButton();
-        HistorialBoton = new javax.swing.JButton();
-        CerrarSesionBoton = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(600, 600));
+        setUndecorated(true);
+        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                formMouseDragged(evt);
+            }
+        });
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
+        getContentPane().setLayout(null);
 
-        BienvenidaLabel.setText("Bienvenido");
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/cancelar.png"))); // NOI18N
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(560, 10, 24, 30);
 
+        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel3.setLayout(null);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        BienvenidaLabel.setFont(new java.awt.Font("Roboto Light", 2, 24)); // NOI18N
+        BienvenidaLabel.setText("Bienvenido, usuario.");
+
+        SaldoLabel.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        SaldoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         SaldoLabel.setText("Saldo:$");
 
+        RecargarDineroBoton.setBackground(new java.awt.Color(255, 153, 51));
+        RecargarDineroBoton.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        RecargarDineroBoton.setForeground(new java.awt.Color(255, 255, 255));
         RecargarDineroBoton.setText("Recargar");
+        RecargarDineroBoton.setBorder(null);
         RecargarDineroBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RecargarDineroBotonActionPerformed(evt);
             }
         });
 
+        EnviarDineroBoton.setBackground(new java.awt.Color(102, 255, 102));
+        EnviarDineroBoton.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        EnviarDineroBoton.setForeground(new java.awt.Color(255, 255, 255));
         EnviarDineroBoton.setText("Enviar");
+        EnviarDineroBoton.setBorder(null);
         EnviarDineroBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EnviarDineroBotonActionPerformed(evt);
             }
         });
 
-        HistorialBoton.setText("Ver Historial");
-        HistorialBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HistorialBotonActionPerformed(evt);
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/user.png"))); // NOI18N
+
+        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/cerrar-sesion.png"))); // NOI18N
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
             }
         });
 
-        CerrarSesionBoton.setText("CerrarSesion");
-        CerrarSesionBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CerrarSesionBotonActionPerformed(evt);
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/historial.png"))); // NOI18N
+        jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
             }
         });
 
@@ -107,86 +159,151 @@ public class HomeFrame extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(195, 195, 195)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(CerrarSesionBoton)
-                    .addComponent(HistorialBoton)
-                    .addComponent(EnviarDineroBoton)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(RecargarDineroBoton)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel3)
+                        .addGap(70, 70, 70)
+                        .addComponent(BienvenidaLabel))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(SaldoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(BienvenidaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(238, Short.MAX_VALUE))
+                                .addGap(120, 120, 120)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(37, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(SaldoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(146, 146, 146))
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(EnviarDineroBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(RecargarDineroBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(178, 178, 178))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(BienvenidaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BienvenidaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(SaldoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(RecargarDineroBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(RecargarDineroBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(EnviarDineroBoton)
-                .addGap(18, 18, 18)
-                .addComponent(HistorialBoton)
-                .addGap(18, 18, 18)
-                .addComponent(CerrarSesionBoton)
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addComponent(EnviarDineroBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        jPanel3.add(jPanel1);
+        jPanel1.setBounds(80, 100, 440, 430);
+
+        jLabel2.setFont(new java.awt.Font("Roboto", 1, 48)); // NOI18N
+        jLabel2.setText("Inicio");
+        jPanel3.add(jLabel2);
+        jLabel2.setBounds(240, 30, 120, 60);
+
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("© 2025 Money Tress. Todos los derechos reservados.");
+        jPanel3.add(jLabel7);
+        jLabel7.setBounds(0, 580, 290, 16);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Fondo00.png"))); // NOI18N
+        jPanel3.add(jLabel1);
+        jLabel1.setBounds(0, 0, 600, 600);
+
+        getContentPane().add(jPanel3);
+        jPanel3.setBounds(0, 0, 600, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void EnviarDineroBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarDineroBotonActionPerformed
-        new TransferenciaFrame(usuario, logica, this).setVisible(true);
-
-    }//GEN-LAST:event_EnviarDineroBotonActionPerformed
-
-    private void CerrarSesionBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarSesionBotonActionPerformed
-             new LoginFrame(logica).setVisible(true); // ✅ Reutiliza la misma instancia
-this.dispose();
-       
-    }//GEN-LAST:event_CerrarSesionBotonActionPerformed
-
     private void RecargarDineroBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RecargarDineroBotonActionPerformed
         new RecargaFrame(usuario, logica, this).setVisible(true);
-
-
-
     }//GEN-LAST:event_RecargarDineroBotonActionPerformed
 
-    private void HistorialBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HistorialBotonActionPerformed
-            new HistorialFrame(usuario, this).setVisible(true);
-    this.setVisible(false);
+    private void EnviarDineroBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarDineroBotonActionPerformed
+        new TransferenciaFrame(usuario, logica, this).setVisible(true);
+    }//GEN-LAST:event_EnviarDineroBotonActionPerformed
 
-    }//GEN-LAST:event_HistorialBotonActionPerformed
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        int confirmacion = JOptionPane.showConfirmDialog(
+            null,
+            "¿Deseas cerrar el programa?",
+            "Confirmación",
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.QUESTION_MESSAGE
+        );
+
+        if (confirmacion == JOptionPane.YES_OPTION) {
+            System.exit(0); // Cierra el programa
+        }
+        // Si elige NO, simplemente no pasa nada
+    }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        
+        int confirmacion = JOptionPane.showConfirmDialog(
+            null,
+            "¿Deseas cerrar la sesion?",
+            "Confirmación",
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.QUESTION_MESSAGE
+        );
+
+        if (confirmacion == JOptionPane.YES_OPTION) {
+            new LoginFrame(logica).setVisible(true); // ✅ Reutiliza la misma instancia
+            this.dispose();
+        }
+        // Si elige NO, simplemente no pasa nada
+    }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        new HistorialFrame(usuario, this).setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        mouseX = evt.getX();
+        mouseY = evt.getY();
+    }//GEN-LAST:event_formMouseClicked
+
+    private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        setLocation(x - mouseX, y - mouseY);
+    }//GEN-LAST:event_formMouseDragged
 
   
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BienvenidaLabel;
-    private javax.swing.JButton CerrarSesionBoton;
     private javax.swing.JButton EnviarDineroBoton;
-    private javax.swing.JButton HistorialBoton;
     private javax.swing.JButton RecargarDineroBoton;
     private javax.swing.JLabel SaldoLabel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }

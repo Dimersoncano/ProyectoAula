@@ -15,8 +15,9 @@ import javax.swing.JOptionPane;
 public class TransferenciaFrame extends javax.swing.JFrame {
 
    private Usuario remitente;
-private LogicaBilletera logica;
-private HomeFrame homeFrame;
+    private LogicaBilletera logica;
+    private HomeFrame homeFrame;
+    private int mouseX, mouseY;
 
 public TransferenciaFrame(Usuario remitente, LogicaBilletera logica, HomeFrame homeFrame) {
     this.remitente = remitente;
@@ -37,83 +38,132 @@ public TransferenciaFrame(Usuario remitente, LogicaBilletera logica, HomeFrame h
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        CuentaDestinoLabel = new javax.swing.JLabel();
-        CuentaDestinoText = new javax.swing.JTextField();
-        MontoLabel = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         MontoText = new javax.swing.JTextField();
+        CuentaDestinoText = new javax.swing.JTextField();
+        CuentaDestinoLabel = new javax.swing.JLabel();
         EnviarBoton = new javax.swing.JButton();
         VolverBoton = new javax.swing.JButton();
+        CuentaDestinoLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(600, 460));
+        setUndecorated(true);
+        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                formMouseDragged(evt);
+            }
+        });
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                formMousePressed(evt);
+            }
+        });
+        getContentPane().setLayout(null);
 
-        CuentaDestinoLabel.setText("Cuenta Destino");
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setLayout(null);
 
-        MontoLabel.setText("monto a enviar");
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        CuentaDestinoLabel.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        CuentaDestinoLabel.setText("Numero de cuenta:");
+
+        EnviarBoton.setBackground(new java.awt.Color(102, 255, 102));
+        EnviarBoton.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        EnviarBoton.setForeground(new java.awt.Color(255, 255, 255));
         EnviarBoton.setText("Enviar Dinero");
+        EnviarBoton.setBorder(null);
         EnviarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EnviarBotonActionPerformed(evt);
             }
         });
 
+        VolverBoton.setBackground(new java.awt.Color(153, 153, 153));
+        VolverBoton.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        VolverBoton.setForeground(new java.awt.Color(255, 255, 255));
         VolverBoton.setText("volver");
+        VolverBoton.setBorder(null);
         VolverBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 VolverBotonActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(CuentaDestinoLabel)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(VolverBoton)
-                                .addComponent(MontoLabel)))
-                        .addGap(209, 209, 209)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CuentaDestinoText, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(MontoText, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(197, 197, 197)
-                        .addComponent(EnviarBoton)))
-                .addContainerGap(76, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        CuentaDestinoLabel1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        CuentaDestinoLabel1.setText("Monto a transferir:");
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/usuario.png"))); // NOI18N
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/dinero.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(CuentaDestinoLabel1)
                     .addComponent(CuentaDestinoLabel)
-                    .addComponent(CuentaDestinoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(110, 110, 110)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(MontoLabel)
-                    .addComponent(MontoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(91, 91, 91)
-                .addComponent(EnviarBoton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addComponent(VolverBoton)
-                .addGap(36, 36, 36))
+                    .addComponent(VolverBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(CuentaDestinoText, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                    .addComponent(MontoText)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(EnviarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)))
+                .addContainerGap(58, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(126, 126, 126))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CuentaDestinoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CuentaDestinoLabel))
+                .addGap(22, 22, 22)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(MontoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CuentaDestinoLabel1))
+                .addGap(26, 26, 26)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(EnviarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(VolverBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(110, 90, 380, 280);
+
+        jLabel4.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Transferir");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(210, 20, 170, 60);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Fondo00.png"))); // NOI18N
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(0, 0, 600, 465);
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 600, 460);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -196,16 +246,32 @@ public TransferenciaFrame(Usuario remitente, LogicaBilletera logica, HomeFrame h
 homeFrame.setVisible(true); // Regresa al Home
     }//GEN-LAST:event_VolverBotonActionPerformed
 
+    private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
+        mouseX = evt.getX();
+        mouseY = evt.getY();
+    }//GEN-LAST:event_formMousePressed
+
+    private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        setLocation(x - mouseX, y - mouseY);
+    }//GEN-LAST:event_formMouseDragged
+
   
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CuentaDestinoLabel;
+    private javax.swing.JLabel CuentaDestinoLabel1;
     private javax.swing.JTextField CuentaDestinoText;
     private javax.swing.JButton EnviarBoton;
-    private javax.swing.JLabel MontoLabel;
     private javax.swing.JTextField MontoText;
     private javax.swing.JButton VolverBoton;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }
