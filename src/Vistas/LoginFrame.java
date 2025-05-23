@@ -60,12 +60,12 @@ public class LoginFrame extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(0, 153, 0));
         jLabel4.setText("Money");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(300, 30, 150, 50);
+        jLabel4.setBounds(320, 30, 160, 50);
 
         jLabel2.setFont(new java.awt.Font("Roboto", 1, 48)); // NOI18N
         jLabel2.setText("Money");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(150, 30, 150, 50);
+        jLabel2.setBounds(120, 30, 170, 50);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -247,13 +247,17 @@ if (!clave.matches(".*[a-zA-Z].*") || !clave.matches(".*\\d.*")) {
 
 try {
     Usuario u = logica.login(usuario, clave);
-    if (u.getRol().equalsIgnoreCase("admin")) {
-        JOptionPane.showMessageDialog(this, "Bienvenido admin: " + u.getNombre());
-        // Aquí puedes abrir una ventana PanelAdmin si lo deseas
-    } else {
-       new HomeFrame(u, logica).setVisible(true); // ✅ correcto
+   if (u.getRol().equalsIgnoreCase("admin")) {
+    JOptionPane.showMessageDialog(this, "Bienvenido admin: " + u.getNombre());
+    new AdminFrame(logica).setVisible(true); // Abre el panel de administrador
+    this.dispose(); // Cierra la ventana de login
+    
+}else {
+    new HomeFrame(u, logica).setVisible(true); // 
+    this.dispose();
+}
 
-    }
+
     this.dispose();
 } catch (UsuarioNoEncontradoException ex) {
     JOptionPane.showMessageDialog(this, ex.getMessage());
@@ -269,12 +273,25 @@ try {
     }//GEN-LAST:event_ContraseñaTextActionPerformed
 
     private void UsuarioTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_UsuarioTextKeyTyped
-                              char c = evt.getKeyChar();
-                    if (!Character.isLetter(c) && !Character.isWhitespace(c)) {
-                       evt.consume();
-                     getToolkit().beep();
-                              JOptionPane.showMessageDialog(this, "Solo se permiten letras.");
-}
+                                                         
+                        char c = evt.getKeyChar();
+
+    // Permitir letras y espacios
+    if (Character.isLetter(c) || Character.isWhitespace(c)) {
+        return;
+    }
+
+    // Permitir teclas de control como borrar (backspace), flechas, etc.
+    if (Character.isISOControl(c)) {
+        return;
+    }
+
+    // Si no es letra, espacio ni tecla de control, no permitir
+    evt.consume();
+    getToolkit().beep();
+    JOptionPane.showMessageDialog(this, "Solo se permiten letras.");     
+
+
     }//GEN-LAST:event_UsuarioTextKeyTyped
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked

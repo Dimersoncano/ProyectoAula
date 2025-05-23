@@ -87,7 +87,7 @@ private void mostrarHistorial() {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Historial de transacciones");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(90, 30, 430, 60);
+        jLabel2.setBounds(90, 30, 450, 60);
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
 

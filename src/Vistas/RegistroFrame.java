@@ -91,7 +91,7 @@ public class RegistroFrame extends javax.swing.JFrame {
         NombreLabel1.setText("Documento de identidad:");
 
         NombreLabel2.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        NombreLabel2.setText("Nombre de usuario:");
+        NombreLabel2.setText("Nombre de cuenta");
 
         NombreLabel3.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         NombreLabel3.setText("Contraseña:");
@@ -248,7 +248,7 @@ public class RegistroFrame extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Roboto", 1, 48)); // NOI18N
         jLabel2.setText("Registro");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(210, 30, 190, 60);
+        jLabel2.setBounds(210, 30, 210, 60);
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/cancelar.png"))); // NOI18N
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {

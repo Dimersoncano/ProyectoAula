@@ -71,7 +71,7 @@ public TransferenciaFrame(Usuario remitente, LogicaBilletera logica, HomeFrame h
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         CuentaDestinoLabel.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        CuentaDestinoLabel.setText("Numero de cuenta:");
+        CuentaDestinoLabel.setText("Nombre de cuenta");
 
         EnviarBoton.setBackground(new java.awt.Color(102, 255, 102));
         EnviarBoton.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
@@ -119,7 +119,7 @@ public TransferenciaFrame(Usuario remitente, LogicaBilletera logica, HomeFrame h
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(EnviarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)))
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,7 +150,7 @@ public TransferenciaFrame(Usuario remitente, LogicaBilletera logica, HomeFrame h
         );
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(110, 90, 380, 280);
+        jPanel2.setBounds(110, 120, 382, 280);
 
         jLabel4.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));

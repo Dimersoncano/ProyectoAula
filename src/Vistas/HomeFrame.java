@@ -214,7 +214,7 @@ public class HomeFrame extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Roboto", 1, 48)); // NOI18N
         jLabel2.setText("Inicio");
         jPanel3.add(jLabel2);
-        jLabel2.setBounds(240, 30, 120, 60);
+        jLabel2.setBounds(240, 30, 130, 60);
 
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("© 2025 Money Tress. Todos los derechos reservados.");

@@ -1,0 +1,110 @@
+
+@startuml
+
+class Main {
+    main(args: String[]): void
+}
+
+class LogicaBilletera {
+    - usuarios: List<Usuario>
+    - administrador: Administrador
+    - configuracion: Configuracion
+    - seguridad: Seguridad
+    - notificaciones: Notificaciones
+
+    + registrarUsuario(nombre: String, numeroCuenta: String, contraseña: String): boolean
+    + login(numeroCuenta: String, contraseña: String): Usuario
+    + recargarSaldo(usuario: Usuario, monto: double): void
+    + enviarDinero(origen: Usuario, destinoNumeroCuenta: String, monto: double): boolean
+    + gestionAdmin(): Administrador
+}
+
+class Usuario {
+    - nombre: String
+    - numeroCuenta: String
+    - contraseña: String
+    - saldo: double
+
+    + registrarCuenta(tipo: String): Cuenta
+    + consultarSaldo(): double
+    + agregarTransaccion(t: Transaccion): void
+    + asociarTarjeta(t: TarjetaBancaria): void
+    + realizarTransaccion(monto: double, tipo: String): boolean
+}
+
+class Cuenta {
+    - numeroCuenta: String
+    - saldo: double
+    - tipoCuenta: String
+
+    + consultarSaldo(): double
+    + realizarTransaccion(monto: double, tipo: String): boolean
+}
+
+class Transaccion {
+    - tipo: String
+    - monto: double
+    - fecha: LocalDateTime
+
+    + mostrarInfo(): String
+}
+
+class HistorialTransacciones {
+    - historial: List<Transaccion>
+
+    + agregarTransaccion(t: Transaccion): void
+    + verHistorial(): List<Transaccion>
+}
+
+class TarjetaBancaria {
+    - numeroTarjeta: String
+    - fechaExpiracion: String
+    - cvv: String
+
+    + asociarTarjeta(u: Usuario): void
+    + desasociarTarjeta(u: Usuario): void
+}
+
+class Configuracion {
+    - limiteTransaccion: double
+    - tiempoExpiracionSesion: int
+
+    + cambiarConfiguracion(limite: double, tiempo: int): void
+}
+
+class Seguridad {
+    - contraseñaEncriptada: String
+
+    + encriptarContraseña(password: String): String
+    + validarToken(token: String): boolean
+}
+
+class Notificaciones {
+    - mensaje: String
+    - tipoNotificacion: String
+
+    + enviarNotificacion(usuario: Usuario): void
+}
+
+class Administrador {
+    - nombreAdmin: String
+
+    + verReporteDeTransacciones(): List<Transaccion>
+    + gestionarUsuarios(): List<Usuario>
+}
+
+class UsuarioNoEncontradoException
+class SaldoInsuficienteException
+
+Main --> LogicaBilletera
+LogicaBilletera --> Usuario
+LogicaBilletera --> Administrador
+LogicaBilletera --> Configuracion
+LogicaBilletera --> Seguridad
+LogicaBilletera --> Notificaciones
+Usuario --> Cuenta
+Usuario --> HistorialTransacciones
+Usuario --> TarjetaBancaria
+HistorialTransacciones --> Transaccion
+
+@enduml

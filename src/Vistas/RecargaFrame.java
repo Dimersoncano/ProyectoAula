@@ -164,7 +164,7 @@ public RecargaFrame(Usuario usuario, LogicaBilletera logica, HomeFrame homeFrame
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Recarga");
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(140, 10, 140, 60);
+        jLabel2.setBounds(140, 10, 150, 60);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Fondo00.png"))); // NOI18N
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
