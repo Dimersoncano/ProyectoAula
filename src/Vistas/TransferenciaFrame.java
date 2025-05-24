@@ -7,7 +7,7 @@ package Vistas;
 import Logica.LogicaBilletera;
 import Modelos.Usuario;
 import javax.swing.JOptionPane;
-
+import Vistas.ConfirmacionTransaccionFrame;
 /**
  *
  * @author Dimerson
@@ -231,14 +231,19 @@ public TransferenciaFrame(Usuario remitente, LogicaBilletera logica, HomeFrame h
     // Registrar en historial
     remitente.getHistorial().add(new Modelos.Transaccion("Envío", monto, "Envío a " + cuentaDestino));
     receptor.getHistorial().add(new Modelos.Transaccion("Recibo", monto, "Recibido de " + remitente.getNumeroCuenta()));
-
+    
     JOptionPane.showMessageDialog(this, "Transferencia exitosa de $" + monto + " a " + cuentaDestino);
-
+    
+    ConfirmacionTransaccionFrame confirmacion = new ConfirmacionTransaccionFrame();
+    confirmacion.cargarDatos(cuentaDestino, monto);
+    confirmacion.setVisible(true);
+    
+        
     // Actualizar saldo en pantalla de inicio
     homeFrame.actualizarSaldo();
 
     this.dispose(); // Cerrar la ventana
-
+    
     }//GEN-LAST:event_EnviarBotonActionPerformed
 
     private void VolverBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverBotonActionPerformed
