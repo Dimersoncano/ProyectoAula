@@ -1,5 +1,6 @@
 package Modelos;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,8 +8,9 @@ import java.util.List;
  * Representa a un usuario registrado en la billetera virtual.
  * Contiene datos personales, su cuenta, historial, notificaciones y rol de acceso.
  */
-public class Usuario {
-
+public class Usuario implements Serializable {
+    private static final long serialVersionUID = 1L;
+    
     private String nombre;
     private String numeroCuenta;
     private String contraseña;
@@ -18,7 +20,7 @@ public class Usuario {
     private Notificaciones notificaciones;
     private TarjetaBancaria tarjeta;
     private String rol; //  "usuario" o "admin"
-
+    private String documento;
     /**
      * Constructor principal con rol incluido.
      * @param nombre Nombre completo del usuario.
@@ -72,4 +74,11 @@ public class Usuario {
 
     public String getRol() { return rol; } // ✅ Nuevo getter
     public void setRol(String rol) { this.rol = rol; } // ✅ Nuevo setter
+    public String getDocumento() {
+        return documento;
+    }
+
+    public void setDocumento(String documento) {
+        this.documento = documento;
+    }
 }

@@ -1,10 +1,14 @@
 package Modelos;
 
+
+import java.io.Serializable;
 /**
  * Clase que representa al administrador del sistema de la billetera virtual.
  * Puede consultar estadísticas y configurar parámetros del sistema.
  */
-public class Administrador {
+public class Administrador implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private String nombre;
     private String clave; // ← NUEVO

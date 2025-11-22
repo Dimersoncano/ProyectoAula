@@ -1,11 +1,14 @@
 package Modelos;
 
+import java.io.Serializable;
 /**
  * Clase que representa parámetros de configuración del sistema.
  * Por ejemplo, puede definir montos máximos o días de espera.
  */
-public class Configuracion {
 
+public class Configuracion implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     private double montoMaximo;
     private int diasEspera;
 

@@ -1,11 +1,14 @@
 package Modelos;
 
+import java.io.Serializable;
 /**
  * Representa una cuenta bancaria dentro de la billetera virtual.
  * Está asociada a un usuario y tiene un número, saldo y tipo.
  */
-public class Cuenta {
+public class Cuenta implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+    
     private String numeroCuenta;
     private double saldo;
     private String tipo; // Ej: "Ahorros", "Corriente"

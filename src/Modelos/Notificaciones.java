@@ -1,5 +1,6 @@
 package Modelos;
 
+import java.io.Serializable;    
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,8 +8,10 @@ import java.util.List;
  * Representa un sistema de notificaciones básicas para el usuario.
  * Puede utilizarse para mensajes como alertas de recarga, envíos, etc.
  */
-public class Notificaciones {
+public class Notificaciones implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+    
     private List<String> mensajes;
 
     /**

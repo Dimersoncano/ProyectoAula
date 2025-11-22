@@ -1,13 +1,16 @@
 package Modelos;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Representa una transacción dentro de la billetera virtual.
  * Puede ser de tipo "Recarga", "Envío", "Pago", entre otros.
  */
-public class Transaccion {
+public class Transaccion implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+    
     private String tipo;          // Tipo de transacción (Ej: "Recarga", "Envío")
     private double monto;         // Monto de dinero involucrado
     private String descripcion;   // Descripción o motivo

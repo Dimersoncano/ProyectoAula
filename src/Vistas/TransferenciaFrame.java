@@ -227,9 +227,23 @@ public TransferenciaFrame(Usuario remitente, LogicaBilletera logica, HomeFrame h
 
     double saldoReceptor = receptor.getCuenta().getSaldo();
     receptor.getCuenta().setSaldo(saldoReceptor + monto);
-
+    
     // Registrar en historial
     remitente.getHistorial().add(new Modelos.Transaccion("Envío", monto, "Envío a " + cuentaDestino));
+    receptor.getHistorial().add(new Modelos.Transaccion("Recibo", monto, "Recibido de " + remitente.getNumeroCuenta()));
+
+    JOptionPane.showMessageDialog(this, "Transferencia exitosa de $" + monto + " a " + cuentaDestino);
+
+    ConfirmacionTransaccionFrame confirmacion = new ConfirmacionTransaccionFrame();
+    confirmacion.cargarDatos(cuentaDestino, monto);
+    confirmacion.setVisible(true);
+
+    // Actualizar saldo en pantalla de inicio
+    homeFrame.actualizarSaldo();
+    logica.guardarEstadoSistema();
+    this.dispose();
+    // Registrar en historial
+    /* remitente.getHistorial().add(new Modelos.Transaccion("Envío", monto, "Envío a " + cuentaDestino));
     receptor.getHistorial().add(new Modelos.Transaccion("Recibo", monto, "Recibido de " + remitente.getNumeroCuenta()));
     
     JOptionPane.showMessageDialog(this, "Transferencia exitosa de $" + monto + " a " + cuentaDestino);
@@ -243,12 +257,12 @@ public TransferenciaFrame(Usuario remitente, LogicaBilletera logica, HomeFrame h
     homeFrame.actualizarSaldo();
 
     this.dispose(); // Cerrar la ventana
-    
+    */
     }//GEN-LAST:event_EnviarBotonActionPerformed
 
     private void VolverBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverBotonActionPerformed
         this.dispose();            // Cierra Transferencia
-homeFrame.setVisible(true); // Regresa al Home
+        homeFrame.setVisible(true); // Regresa al Home
     }//GEN-LAST:event_VolverBotonActionPerformed
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed

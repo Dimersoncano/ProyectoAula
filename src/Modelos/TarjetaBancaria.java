@@ -1,11 +1,13 @@
 package Modelos;
 
+import java.io.Serializable;
 /**
  * Representa una tarjeta bancaria asociada al usuario en la billetera virtual.
  * Puede usarse para recargar saldo, verificar identidad o realizar pagos.
  */
-public class TarjetaBancaria {
+public class TarjetaBancaria implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     private String numero;
     private String fechaExpiracion;
     private String cvv;

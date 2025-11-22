@@ -1,12 +1,14 @@
 package Vistas;
 
 import java.awt.Graphics2D;
+import java.awt.Window;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -16,8 +18,10 @@ public class ConfirmacionTransaccionFrame extends javax.swing.JFrame {
     private HomeFrame homeFrame;
     public ConfirmacionTransaccionFrame() {
         initComponents();
+        setLocationRelativeTo(null);
+        
     }
-
+    private int mouseX, mouseY;
     public void cargarDatos(String usuarioDestino, double monto) {
     //lblMensaje.setText("✅ Transacción realizada con éxito");
     lblMonto.setText("$" + monto);
@@ -38,21 +42,22 @@ public class ConfirmacionTransaccionFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelContenido = new javax.swing.JPanel();
         btnGuardarJPEG = new javax.swing.JButton();
-        lblMensaje = new javax.swing.JLabel();
-        lblUsuario = new javax.swing.JLabel();
-        lblMonto = new javax.swing.JLabel();
-        lblFecha = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        lblMonto = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        lblFecha = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        lblUsuario = new javax.swing.JLabel();
+        Wallpaper = new javax.swing.JLabel();
+        FondoCaptura = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        panelContenido.setBackground(new java.awt.Color(204, 255, 204));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(245, 422));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnGuardarJPEG.setText("Guardar JPEG");
         btnGuardarJPEG.addActionListener(new java.awt.event.ActionListener() {
@@ -60,15 +65,7 @@ public class ConfirmacionTransaccionFrame extends javax.swing.JFrame {
                 btnGuardarJPEGActionPerformed(evt);
             }
         });
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel5.setText("Transacción realizada con éxito");
-
-        jLabel1.setText("Monto enviado:");
-
-        jLabel2.setText("Fecha de transferencia:");
-
-        jLabel3.setText("Destinario:");
+        getContentPane().add(btnGuardarJPEG, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 110, -1));
 
         jButton1.setText("cerrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -76,93 +73,94 @@ public class ConfirmacionTransaccionFrame extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, -1, -1));
 
-        javax.swing.GroupLayout panelContenidoLayout = new javax.swing.GroupLayout(panelContenido);
-        panelContenido.setLayout(panelContenidoLayout);
-        panelContenidoLayout.setHorizontalGroup(
-            panelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelContenidoLayout.createSequentialGroup()
-                .addGroup(panelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelContenidoLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lblMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelContenidoLayout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addGroup(panelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelContenidoLayout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelContenidoLayout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelContenidoLayout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 82, Short.MAX_VALUE)))
-                .addGap(49, 49, 49))
-            .addGroup(panelContenidoLayout.createSequentialGroup()
-                .addGroup(panelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelContenidoLayout.createSequentialGroup()
-                        .addGap(265, 265, 265)
-                        .addComponent(btnGuardarJPEG))
-                    .addGroup(panelContenidoLayout.createSequentialGroup()
-                        .addGap(183, 183, 183)
-                        .addComponent(jLabel5)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelContenidoLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel5.setText("Transacción realizada con éxito");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        jLabel1.setText("Monto enviado:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
+        getContentPane().add(lblMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 145, 20));
+
+        jLabel2.setText("Fecha de transferencia:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
+        getContentPane().add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 148, 20));
+
+        jLabel3.setText("Destinario:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
+        getContentPane().add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 125, 20));
+
+        Wallpaper.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Captura Transferencia.png"))); // NOI18N
+        getContentPane().add(Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        FondoCaptura.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                FondoCapturaMouseDragged(evt);
+            }
+        });
+        FondoCaptura.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                FondoCapturaMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout FondoCapturaLayout = new javax.swing.GroupLayout(FondoCaptura);
+        FondoCaptura.setLayout(FondoCapturaLayout);
+        FondoCapturaLayout.setHorizontalGroup(
+            FondoCapturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 240, Short.MAX_VALUE)
         );
-        panelContenidoLayout.setVerticalGroup(
-            panelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelContenidoLayout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addGroup(panelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(23, 23, 23)
-                .addGroup(panelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(lblFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(panelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
-                .addComponent(btnGuardarJPEG)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
-                .addGap(12, 12, 12))
+        FondoCapturaLayout.setVerticalGroup(
+            FondoCapturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 420, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelContenido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelContenido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(FondoCaptura, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarJPEGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarJPEGActionPerformed
     try {
-    BufferedImage imagen = new BufferedImage(panelContenido.getWidth(), panelContenido.getHeight(), BufferedImage.TYPE_INT_RGB);
+    // Capturar toda la ventana (incluye fondo verde + panel blanco + textos)
+    Window window = SwingUtilities.getWindowAncestor(FondoCaptura);
+
+    BufferedImage imagen = new BufferedImage(
+            window.getWidth(),
+            window.getHeight(),
+            BufferedImage.TYPE_INT_RGB
+    );
+
     Graphics2D g2d = imagen.createGraphics();
-    panelContenido.paint(g2d);
+    window.printAll(g2d);
+    g2d.dispose();
+
+    String rutaProyecto = System.getProperty("user.dir"); 
+    String carpetaCapturas = rutaProyecto + File.separator + "captura de transacciones";
+
+    // Crear carpeta si no existe
+    File carpeta = new File(carpetaCapturas);
+    if (!carpeta.exists()) {
+        carpeta.mkdirs();
+    }
+
+    File archivo = new File(carpeta, "transaccion_" + System.currentTimeMillis() + ".jpeg");
+    ImageIO.write(imagen, "jpeg", archivo);
+
+    JOptionPane.showMessageDialog(this, 
+        "Imagen guardada correctamente en:\n" + archivo.getAbsolutePath()
+    );
+
+} catch (Exception e) {
+    JOptionPane.showMessageDialog(this, "Error al guardar imagen: " + e.getMessage());
+}
+
+ // Codigo antiguo de capturas       
+    /* try {
+    BufferedImage imagen = new BufferedImage(FondoCaptura.getWidth(), FondoCaptura.getHeight(), BufferedImage.TYPE_INT_RGB);
+    Graphics2D g2d = imagen.createGraphics();
+    FondoCaptura.paint(g2d);
     g2d.dispose();
 
     String rutaProyecto = System.getProperty("user.dir"); // Ruta base del proyecto
@@ -182,13 +180,24 @@ public class ConfirmacionTransaccionFrame extends javax.swing.JFrame {
     JOptionPane.showMessageDialog(this, "Error al guardar imagen: " + e.getMessage());
 }
 
-
+*/
 
     }//GEN-LAST:event_btnGuardarJPEGActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void FondoCapturaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FondoCapturaMousePressed
+        mouseX = evt.getX();
+        mouseY = evt.getY();
+    }//GEN-LAST:event_FondoCapturaMousePressed
+
+    private void FondoCapturaMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FondoCapturaMouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        setLocation(x - mouseX, y - mouseY);
+    }//GEN-LAST:event_FondoCapturaMouseDragged
 
     /**
      * @param args the command line arguments
@@ -226,6 +235,8 @@ public class ConfirmacionTransaccionFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel FondoCaptura;
+    private javax.swing.JLabel Wallpaper;
     private javax.swing.JButton btnGuardarJPEG;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -233,9 +244,7 @@ public class ConfirmacionTransaccionFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel lblFecha;
-    private javax.swing.JLabel lblMensaje;
     private javax.swing.JLabel lblMonto;
     private javax.swing.JLabel lblUsuario;
-    private javax.swing.JPanel panelContenido;
     // End of variables declaration//GEN-END:variables
 }
