@@ -40,28 +40,16 @@ public class RegistroFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        NombreLabel = new javax.swing.JLabel();
-        NombreLabel1 = new javax.swing.JLabel();
-        NombreLabel2 = new javax.swing.JLabel();
-        NombreLabel3 = new javax.swing.JLabel();
-        NombreLabel4 = new javax.swing.JLabel();
-        NombreLabel5 = new javax.swing.JLabel();
-        NombreLabel6 = new javax.swing.JLabel();
-        NombreLabel7 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jSeparator2 = new javax.swing.JSeparator();
-        jSeparator3 = new javax.swing.JSeparator();
-        DocumentoText = new javax.swing.JTextField();
-        UsuarioText = new javax.swing.JTextField();
-        NombreText = new javax.swing.JTextField();
-        ContraseñaText = new javax.swing.JTextField();
-        ConfimarText = new javax.swing.JTextField();
-        RegistrarBoton = new javax.swing.JButton();
-        VolverBoton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        NombreText = new javax.swing.JTextField();
+        DocumentoText = new javax.swing.JTextField();
+        UsuarioText = new javax.swing.JTextField();
+        ContraseñaText = new javax.swing.JTextField();
+        ConfimarText = new javax.swing.JTextField();
+        VolverBoton = new javax.swing.JButton();
+        RegistrarBoton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -82,173 +70,11 @@ public class RegistroFrame extends javax.swing.JFrame {
         });
         jPanel1.setLayout(null);
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        NombreLabel.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        NombreLabel.setText("Nombre Completo:");
-
-        NombreLabel1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        NombreLabel1.setText("Documento de identidad:");
-
-        NombreLabel2.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        NombreLabel2.setText("Nombre de cuenta");
-
-        NombreLabel3.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        NombreLabel3.setText("Contraseña:");
-
-        NombreLabel4.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        NombreLabel4.setText("Confirmar contraseña:");
-
-        NombreLabel5.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        NombreLabel5.setText("Cuenta");
-
-        NombreLabel6.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        NombreLabel6.setText("Informacion personal");
-
-        NombreLabel7.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        NombreLabel7.setText("Seguridad");
-
-        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
-
-        jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
-
-        jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
-
-        DocumentoText.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                DocumentoTextKeyTyped(evt);
-            }
-        });
-
-        UsuarioText.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                UsuarioTextKeyTyped(evt);
-            }
-        });
-
-        NombreText.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                NombreTextKeyTyped(evt);
-            }
-        });
-
-        ContraseñaText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ContraseñaTextActionPerformed(evt);
-            }
-        });
-
-        RegistrarBoton.setBackground(new java.awt.Color(0, 255, 51));
-        RegistrarBoton.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        RegistrarBoton.setForeground(new java.awt.Color(255, 255, 255));
-        RegistrarBoton.setText("Registrar");
-        RegistrarBoton.setBorder(null);
-        RegistrarBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegistrarBotonActionPerformed(evt);
-            }
-        });
-
-        VolverBoton.setBackground(new java.awt.Color(153, 153, 153));
-        VolverBoton.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        VolverBoton.setForeground(new java.awt.Color(255, 255, 255));
-        VolverBoton.setText("Volver");
-        VolverBoton.setBorder(null);
-        VolverBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                VolverBotonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(NombreLabel7)
-                    .addComponent(NombreLabel6)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(NombreLabel5)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(VolverBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(NombreLabel3)
-                            .addComponent(NombreLabel2)
-                            .addComponent(NombreLabel1)
-                            .addComponent(NombreLabel)
-                            .addComponent(NombreLabel4))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(UsuarioText, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
-                                    .addComponent(NombreText)
-                                    .addComponent(ContraseñaText)
-                                    .addComponent(ConfimarText)
-                                    .addComponent(DocumentoText)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addGap(52, 52, 52)
-                                .addComponent(RegistrarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40)))))
-                .addContainerGap(52, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(NombreLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NombreLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NombreText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NombreLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DocumentoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(NombreLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NombreLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(UsuarioText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(NombreLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NombreLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ContraseñaText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NombreLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ConfimarText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(RegistrarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(VolverBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(41, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(jPanel2);
-        jPanel2.setBounds(90, 110, 430, 400);
-
-        jLabel2.setFont(new java.awt.Font("Roboto", 1, 48)); // NOI18N
-        jLabel2.setText("Registro");
+        jLabel2.setFont(new java.awt.Font("Roboto Medium", 1, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText(" Registro");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(210, 30, 210, 60);
+        jLabel2.setBounds(190, 40, 210, 60);
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/cancelar.png"))); // NOI18N
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -264,7 +90,93 @@ public class RegistroFrame extends javax.swing.JFrame {
         jPanel1.add(jLabel7);
         jLabel7.setBounds(0, 580, 290, 16);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Fondo00.png"))); // NOI18N
+        NombreText.setBackground(new java.awt.Color(221, 220, 192));
+        NombreText.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        NombreText.setBorder(null);
+        NombreText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NombreTextActionPerformed(evt);
+            }
+        });
+        NombreText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                NombreTextKeyTyped(evt);
+            }
+        });
+        jPanel1.add(NombreText);
+        NombreText.setBounds(130, 150, 340, 30);
+
+        DocumentoText.setBackground(new java.awt.Color(221, 220, 192));
+        DocumentoText.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        DocumentoText.setBorder(null);
+        DocumentoText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                DocumentoTextKeyTyped(evt);
+            }
+        });
+        jPanel1.add(DocumentoText);
+        DocumentoText.setBounds(130, 210, 340, 30);
+
+        UsuarioText.setBackground(new java.awt.Color(221, 220, 192));
+        UsuarioText.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        UsuarioText.setBorder(null);
+        UsuarioText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UsuarioTextActionPerformed(evt);
+            }
+        });
+        UsuarioText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                UsuarioTextKeyTyped(evt);
+            }
+        });
+        jPanel1.add(UsuarioText);
+        UsuarioText.setBounds(130, 289, 340, 30);
+
+        ContraseñaText.setBackground(new java.awt.Color(221, 220, 192));
+        ContraseñaText.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        ContraseñaText.setBorder(null);
+        ContraseñaText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ContraseñaTextActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ContraseñaText);
+        ContraseñaText.setBounds(130, 375, 340, 30);
+
+        ConfimarText.setBackground(new java.awt.Color(221, 220, 192));
+        ConfimarText.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        ConfimarText.setBorder(null);
+        jPanel1.add(ConfimarText);
+        ConfimarText.setBounds(130, 429, 340, 30);
+
+        VolverBoton.setBackground(new java.awt.Color(217, 217, 217));
+        VolverBoton.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        VolverBoton.setForeground(new java.awt.Color(255, 255, 255));
+        VolverBoton.setText("Volver");
+        VolverBoton.setBorder(null);
+        VolverBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VolverBotonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(VolverBoton);
+        VolverBoton.setBounds(190, 495, 90, 33);
+
+        RegistrarBoton.setBackground(new java.awt.Color(57, 196, 62));
+        RegistrarBoton.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        RegistrarBoton.setForeground(new java.awt.Color(255, 255, 255));
+        RegistrarBoton.setText("Registrar");
+        RegistrarBoton.setBorder(null);
+        RegistrarBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegistrarBotonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(RegistrarBoton);
+        RegistrarBoton.setBounds(320, 498, 96, 28);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Checkout.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 600, 600);
 
@@ -401,6 +313,14 @@ if (!Character.isLetterOrDigit(c)) {
         setLocation(x - mouseX, y - mouseY);
     }//GEN-LAST:event_jPanel1MouseDragged
 
+    private void NombreTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NombreTextActionPerformed
+
+    private void UsuarioTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UsuarioTextActionPerformed
+
     
     
 
@@ -408,14 +328,6 @@ if (!Character.isLetterOrDigit(c)) {
     private javax.swing.JTextField ConfimarText;
     private javax.swing.JTextField ContraseñaText;
     private javax.swing.JTextField DocumentoText;
-    private javax.swing.JLabel NombreLabel;
-    private javax.swing.JLabel NombreLabel1;
-    private javax.swing.JLabel NombreLabel2;
-    private javax.swing.JLabel NombreLabel3;
-    private javax.swing.JLabel NombreLabel4;
-    private javax.swing.JLabel NombreLabel5;
-    private javax.swing.JLabel NombreLabel6;
-    private javax.swing.JLabel NombreLabel7;
     private javax.swing.JTextField NombreText;
     private javax.swing.JButton RegistrarBoton;
     private javax.swing.JTextField UsuarioText;
@@ -425,9 +337,5 @@ if (!Character.isLetterOrDigit(c)) {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
     // End of variables declaration//GEN-END:variables
 }

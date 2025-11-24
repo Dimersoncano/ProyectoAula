@@ -75,9 +75,9 @@ public AdminFrame(LogicaBilletera logica) {
 
         jLabel4.setFont(new java.awt.Font("Roboto", 1, 48)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Administrador");
+        jLabel4.setText(" Administrador");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(140, 10, 320, 50);
+        jLabel4.setBounds(120, 10, 350, 50);
 
         CerrarBoton.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         CerrarBoton.setText("Cerrar sesion");

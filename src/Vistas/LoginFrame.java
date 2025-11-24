@@ -35,19 +35,13 @@ public class LoginFrame extends javax.swing.JFrame {
 
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        UsuarioLabel = new javax.swing.JLabel();
-        UsuarioLabel1 = new javax.swing.JLabel();
-        ContraseñaText = new javax.swing.JPasswordField();
-        UsuarioText = new javax.swing.JTextField();
-        TituloLabel = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        IngresarBoton = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        UsuarioText = new javax.swing.JTextField();
+        ContraseñaText = new javax.swing.JPasswordField();
+        IngresarBoton = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jLabelDominante = new javax.swing.JLabel();
         jPanelInicioSesion = new javax.swing.JPanel();
 
@@ -57,135 +51,22 @@ public class LoginFrame extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jLabel4.setFont(new java.awt.Font("Roboto", 1, 48)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 153, 0));
-        jLabel4.setText("Money");
+        jLabel4.setForeground(new java.awt.Color(0, 153, 51));
+        jLabel4.setText("Trees");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(320, 30, 160, 50);
+        jLabel4.setBounds(300, 30, 160, 50);
 
-        jLabel2.setFont(new java.awt.Font("Roboto", 1, 48)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Roboto Medium", 1, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Money");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(120, 30, 170, 50);
+        jLabel2.setBounds(140, 30, 170, 50);
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        UsuarioLabel.setFont(new java.awt.Font("Roboto Light", 0, 18)); // NOI18N
-        UsuarioLabel.setText("Usuario:");
-
-        UsuarioLabel1.setFont(new java.awt.Font("Roboto Light", 0, 18)); // NOI18N
-        UsuarioLabel1.setText("Contraseña:");
-
-        ContraseñaText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ContraseñaTextActionPerformed(evt);
-            }
-        });
-
-        UsuarioText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UsuarioTextActionPerformed(evt);
-            }
-        });
-        UsuarioText.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                UsuarioTextKeyTyped(evt);
-            }
-        });
-
-        TituloLabel.setFont(new java.awt.Font("Roboto Thin", 2, 36)); // NOI18N
-        TituloLabel.setText("Iniciar Sesion");
-
-        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
-
-        IngresarBoton.setText("Iniciar Sesion");
-        IngresarBoton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        IngresarBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IngresarBotonActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setText("¿No tienes cuenta?");
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 153, 204));
-        jLabel5.setText("Registrate aqui");
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel5MouseClicked(evt);
-            }
-        });
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/user.png"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(IngresarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(123, 123, 123))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addComponent(TituloLabel))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(UsuarioLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(UsuarioLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(UsuarioText, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ContraseñaText, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(88, 88, 88)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(123, 123, 123)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(60, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(TituloLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(UsuarioText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(UsuarioLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ContraseñaText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(UsuarioLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(IngresarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel5))
-                .addGap(30, 30, 30))
-        );
-
-        getContentPane().add(jPanel2);
-        jPanel2.setBounds(110, 160, 370, 390);
-
+        jLabel7.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("© 2025 Money Tress. Todos los derechos reservados.");
+        jLabel7.setText("   © 2025 Money Tress. Todos los derechos reservados.");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(0, 580, 290, 16);
+        jLabel7.setBounds(0, 580, 360, 17);
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/cancelar.png"))); // NOI18N
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -196,7 +77,66 @@ public class LoginFrame extends javax.swing.JFrame {
         getContentPane().add(jLabel8);
         jLabel8.setBounds(560, 10, 24, 30);
 
-        jLabelDominante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Fondo00.png"))); // NOI18N
+        UsuarioText.setBackground(new java.awt.Color(207, 210, 176));
+        UsuarioText.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        UsuarioText.setBorder(null);
+        UsuarioText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UsuarioTextActionPerformed(evt);
+            }
+        });
+        UsuarioText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                UsuarioTextKeyTyped(evt);
+            }
+        });
+        getContentPane().add(UsuarioText);
+        UsuarioText.setBounds(220, 265, 175, 35);
+
+        ContraseñaText.setEditable(false);
+        ContraseñaText.setBackground(new java.awt.Color(219, 218, 187));
+        ContraseñaText.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        ContraseñaText.setBorder(null);
+        ContraseñaText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ContraseñaTextActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ContraseñaText);
+        ContraseñaText.setBounds(220, 328, 175, 35);
+
+        IngresarBoton.setBackground(new java.awt.Color(31, 113, 27));
+        IngresarBoton.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
+        IngresarBoton.setForeground(new java.awt.Color(255, 255, 255));
+        IngresarBoton.setText("Iniciar Sesion");
+        IngresarBoton.setToolTipText("");
+        IngresarBoton.setBorder(null);
+        IngresarBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IngresarBotonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(IngresarBoton);
+        IngresarBoton.setBounds(245, 383, 110, 35);
+
+        jLabel5.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 204, 255));
+        jLabel5.setText("Registrate aqui");
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(310, 430, 98, 17);
+
+        jLabel3.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("   ¿No tienes cuenta?");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(170, 430, 140, 16);
+
+        jLabelDominante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Ecommerce 2.png"))); // NOI18N
         getContentPane().add(jLabelDominante);
         jLabelDominante.setBounds(0, 0, 590, 600);
 
@@ -212,7 +152,7 @@ public class LoginFrame extends javax.swing.JFrame {
                 jPanelInicioSesionMousePressed(evt);
             }
         });
-        jPanelInicioSesion.setLayout(null);
+        jPanelInicioSesion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanelInicioSesion);
         jPanelInicioSesion.setBounds(0, 0, 590, 600);
 
@@ -331,21 +271,15 @@ if (confirmacion == JOptionPane.YES_OPTION) {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField ContraseñaText;
     private javax.swing.JButton IngresarBoton;
-    private javax.swing.JLabel TituloLabel;
-    private javax.swing.JLabel UsuarioLabel;
-    private javax.swing.JLabel UsuarioLabel1;
     private javax.swing.JTextField UsuarioText;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabelDominante;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanelInicioSesion;
-    private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 
 }
