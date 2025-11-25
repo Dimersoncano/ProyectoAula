@@ -39,14 +39,12 @@ public RecargaFrame(Usuario usuario, LogicaBilletera logica, HomeFrame homeFrame
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        MontoText = new javax.swing.JTextField();
-        RecargaLabel = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         RecargarBoton = new javax.swing.JButton();
         VolverBoton = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        MontoText = new javax.swing.JTextField();
+        RecargaLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -67,8 +65,45 @@ public RecargaFrame(Usuario usuario, LogicaBilletera logica, HomeFrame homeFrame
         jPanel2.setBackground(new java.awt.Color(153, 153, 153));
         jPanel2.setLayout(null);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel2.setFont(new java.awt.Font("Roboto Medium", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("  Recargar");
+        jPanel2.add(jLabel2);
+        jLabel2.setBounds(120, 10, 190, 60);
 
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/transferir.png"))); // NOI18N
+        jPanel2.add(jLabel3);
+        jLabel3.setBounds(150, 90, 140, 120);
+
+        RecargarBoton.setBackground(new java.awt.Color(31, 114, 27));
+        RecargarBoton.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        RecargarBoton.setForeground(new java.awt.Color(255, 255, 255));
+        RecargarBoton.setText("Recargar");
+        RecargarBoton.setBorder(null);
+        RecargarBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RecargarBotonActionPerformed(evt);
+            }
+        });
+        jPanel2.add(RecargarBoton);
+        RecargarBoton.setBounds(240, 330, 100, 30);
+
+        VolverBoton.setBackground(new java.awt.Color(217, 217, 217));
+        VolverBoton.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        VolverBoton.setForeground(new java.awt.Color(255, 255, 255));
+        VolverBoton.setText("volver");
+        VolverBoton.setBorder(null);
+        VolverBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VolverBotonActionPerformed(evt);
+            }
+        });
+        jPanel2.add(VolverBoton);
+        VolverBoton.setBounds(90, 330, 100, 30);
+
+        MontoText.setBackground(new java.awt.Color(207, 210, 176));
+        MontoText.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        MontoText.setBorder(null);
         MontoText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MontoTextActionPerformed(evt);
@@ -79,150 +114,26 @@ public RecargaFrame(Usuario usuario, LogicaBilletera logica, HomeFrame homeFrame
                 MontoTextKeyTyped(evt);
             }
         });
+        jPanel2.add(MontoText);
+        MontoText.setBounds(140, 250, 150, 30);
 
-        RecargaLabel.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        RecargaLabel.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        RecargaLabel.setForeground(new java.awt.Color(255, 255, 255));
         RecargaLabel.setText("Ingresa el monto a recargar");
+        jPanel2.add(RecargaLabel);
+        RecargaLabel.setBounds(130, 220, 180, 17);
 
-        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
-
-        RecargarBoton.setBackground(new java.awt.Color(0, 255, 51));
-        RecargarBoton.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
-        RecargarBoton.setForeground(new java.awt.Color(255, 255, 255));
-        RecargarBoton.setText("Recargar");
-        RecargarBoton.setBorder(null);
-        RecargarBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RecargarBotonActionPerformed(evt);
-            }
-        });
-
-        VolverBoton.setBackground(new java.awt.Color(153, 153, 153));
-        VolverBoton.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
-        VolverBoton.setForeground(new java.awt.Color(255, 255, 255));
-        VolverBoton.setText("volver");
-        VolverBoton.setBorder(null);
-        VolverBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                VolverBotonActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/transferir.png"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(124, 124, 124)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(RecargarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(VolverBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(66, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(97, 97, 97))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(RecargaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(81, 81, 81))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(MontoText, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(105, 105, 105))))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(RecargaLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(MontoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(RecargarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(VolverBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63))
-        );
-
-        jPanel2.add(jPanel1);
-        jPanel1.setBounds(40, 70, 350, 360);
-
-        jLabel2.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Recargar");
-        jPanel2.add(jLabel2);
-        jLabel2.setBounds(140, 10, 150, 60);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Fondo00.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Recargar (1).png"))); // NOI18N
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel2.add(jLabel1);
         jLabel1.setBounds(0, 0, 430, 450);
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 0, 440, 460);
+        jPanel2.setBounds(0, 0, 430, 450);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void MontoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MontoTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MontoTextActionPerformed
-
-    private void RecargarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RecargarBotonActionPerformed
-        String texto = MontoText.getText().trim();
-
-if (texto.isEmpty()) {
-    JOptionPane.showMessageDialog(this, "Por favor ingrese un monto.");
-    return;
-}
-
-if (!texto.matches("\\d+(\\.\\d{1,2})?")) {
-    JOptionPane.showMessageDialog(this, "El monto debe ser un número válido (ej: 1000 o 1000.50).");
-    return;
-}
-
-double monto = Double.parseDouble(texto);
-
-if (monto <= 0) {
-    JOptionPane.showMessageDialog(this, "El monto debe ser mayor a 0.");
-    return;
-}
-
-logica.recargarSaldo(usuario, monto);
-JOptionPane.showMessageDialog(this, "Saldo recargado con éxito: $" + monto);
-homeFrame.actualizarSaldo();
-homeFrame.setVisible(true);
-    }//GEN-LAST:event_RecargarBotonActionPerformed
-
-    private void MontoTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MontoTextKeyTyped
-        char c = evt.getKeyChar();
-if (!Character.isDigit(c) && c != '.' && c != '\b') {
-    evt.consume();
-    getToolkit().beep();
-}
-
-
-
-    }//GEN-LAST:event_MontoTextKeyTyped
-
-    private void VolverBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverBotonActionPerformed
-        this.dispose();            // Cierra la ventana actual
-homeFrame.setVisible(true); // Muestra HomeFrame nuevamente
-    }//GEN-LAST:event_VolverBotonActionPerformed
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
         mouseX = evt.getX();
@@ -235,6 +146,50 @@ homeFrame.setVisible(true); // Muestra HomeFrame nuevamente
         setLocation(x - mouseX, y - mouseY);
     }//GEN-LAST:event_formMouseDragged
 
+    private void VolverBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverBotonActionPerformed
+        this.dispose();            // Cierra la ventana actual
+        homeFrame.setVisible(true); // Muestra HomeFrame nuevamente
+    }//GEN-LAST:event_VolverBotonActionPerformed
+
+    private void RecargarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RecargarBotonActionPerformed
+        String texto = MontoText.getText().trim();
+
+        if (texto.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor ingrese un monto.");
+            return;
+        }
+
+        if (!texto.matches("\\d+(\\.\\d{1,2})?")) {
+            JOptionPane.showMessageDialog(this, "El monto debe ser un número válido (ej: 1000 o 1000.50).");
+            return;
+        }
+
+        double monto = Double.parseDouble(texto);
+
+        if (monto <= 0) {
+            JOptionPane.showMessageDialog(this, "El monto debe ser mayor a 0.");
+            return;
+        }
+
+        logica.recargarSaldo(usuario, monto);
+        JOptionPane.showMessageDialog(this, "Saldo recargado con éxito: $" + monto);
+        homeFrame.actualizarSaldo();
+        homeFrame.setVisible(true);
+    }//GEN-LAST:event_RecargarBotonActionPerformed
+
+    private void MontoTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MontoTextKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c) && c != '.' && c != '\b') {
+            evt.consume();
+            getToolkit().beep();
+        }
+
+    }//GEN-LAST:event_MontoTextKeyTyped
+
+    private void MontoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MontoTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MontoTextActionPerformed
+
    
     
 
@@ -246,8 +201,6 @@ homeFrame.setVisible(true); // Muestra HomeFrame nuevamente
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }

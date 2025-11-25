@@ -60,9 +60,11 @@ public class ConfirmacionTransaccionFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(245, 422));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnGuardarJPEG.setBackground(new java.awt.Color(217, 217, 217));
+        btnGuardarJPEG.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        btnGuardarJPEG.setForeground(new java.awt.Color(255, 255, 255));
         btnGuardarJPEG.setText("Guardar JPEG");
         btnGuardarJPEG.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,7 +73,10 @@ public class ConfirmacionTransaccionFrame extends javax.swing.JFrame {
         });
         getContentPane().add(btnGuardarJPEG, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 110, -1));
 
-        jButton1.setText("cerrar");
+        jButton1.setBackground(new java.awt.Color(217, 217, 217));
+        jButton1.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Volver");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -79,22 +84,30 @@ public class ConfirmacionTransaccionFrame extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Transacción realizada con éxito");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
+        jLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Monto enviado:");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
         getContentPane().add(lblMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 145, 20));
 
+        jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Fecha de transferencia:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
         getContentPane().add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 148, 20));
 
+        jLabel3.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Destinario:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
         getContentPane().add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 125, 20));
 
+        Wallpaper.setBackground(new java.awt.Color(221, 220, 192));
         Wallpaper.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Captura Transferencia.png"))); // NOI18N
         getContentPane().add(Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 

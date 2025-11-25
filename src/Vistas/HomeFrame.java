@@ -162,7 +162,7 @@ public class HomeFrame extends javax.swing.JFrame {
             }
         });
         jPanel3.add(RecargarDineroBoton);
-        RecargarDineroBoton.setBounds(148, 418, 100, 35);
+        RecargarDineroBoton.setBounds(150, 415, 100, 35);
 
         EnviarDineroBoton.setBackground(new java.awt.Color(31, 114, 27));
         EnviarDineroBoton.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
