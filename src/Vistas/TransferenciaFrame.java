@@ -38,16 +38,11 @@ public TransferenciaFrame(Usuario remitente, LogicaBilletera logica, HomeFrame h
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        MontoText = new javax.swing.JTextField();
-        CuentaDestinoText = new javax.swing.JTextField();
-        CuentaDestinoLabel = new javax.swing.JLabel();
-        EnviarBoton = new javax.swing.JButton();
-        VolverBoton = new javax.swing.JButton();
-        CuentaDestinoLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        CuentaDestinoText = new javax.swing.JTextField();
+        MontoText = new javax.swing.JTextField();
+        VolverBoton = new javax.swing.JButton();
+        EnviarBoton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -68,23 +63,35 @@ public TransferenciaFrame(Usuario remitente, LogicaBilletera logica, HomeFrame h
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
         jPanel1.setLayout(null);
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel4.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Transferir");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(210, 20, 170, 60);
 
-        CuentaDestinoLabel.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        CuentaDestinoLabel.setText("Nombre de cuenta");
-
-        EnviarBoton.setBackground(new java.awt.Color(102, 255, 102));
-        EnviarBoton.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
-        EnviarBoton.setForeground(new java.awt.Color(255, 255, 255));
-        EnviarBoton.setText("Enviar Dinero");
-        EnviarBoton.setBorder(null);
-        EnviarBoton.addActionListener(new java.awt.event.ActionListener() {
+        CuentaDestinoText.setBackground(new java.awt.Color(207, 210, 176));
+        CuentaDestinoText.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        CuentaDestinoText.setBorder(null);
+        CuentaDestinoText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EnviarBotonActionPerformed(evt);
+                CuentaDestinoTextActionPerformed(evt);
             }
         });
+        jPanel1.add(CuentaDestinoText);
+        CuentaDestinoText.setBounds(190, 148, 210, 30);
 
-        VolverBoton.setBackground(new java.awt.Color(153, 153, 153));
+        MontoText.setBackground(new java.awt.Color(207, 210, 176));
+        MontoText.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        MontoText.setBorder(null);
+        MontoText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MontoTextActionPerformed(evt);
+            }
+        });
+        jPanel1.add(MontoText);
+        MontoText.setBounds(190, 235, 210, 30);
+
+        VolverBoton.setBackground(new java.awt.Color(217, 217, 217));
         VolverBoton.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
         VolverBoton.setForeground(new java.awt.Color(255, 255, 255));
         VolverBoton.setText("volver");
@@ -94,71 +101,23 @@ public TransferenciaFrame(Usuario remitente, LogicaBilletera logica, HomeFrame h
                 VolverBotonActionPerformed(evt);
             }
         });
+        jPanel1.add(VolverBoton);
+        VolverBoton.setBounds(170, 305, 111, 33);
 
-        CuentaDestinoLabel1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        CuentaDestinoLabel1.setText("Monto a transferir:");
+        EnviarBoton.setBackground(new java.awt.Color(31, 114, 27));
+        EnviarBoton.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        EnviarBoton.setForeground(new java.awt.Color(255, 255, 255));
+        EnviarBoton.setText("Enviar Dinero");
+        EnviarBoton.setBorder(null);
+        EnviarBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EnviarBotonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(EnviarBoton);
+        EnviarBoton.setBounds(320, 305, 111, 33);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/usuario.png"))); // NOI18N
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/dinero.png"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(CuentaDestinoLabel1)
-                    .addComponent(CuentaDestinoLabel)
-                    .addComponent(VolverBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(CuentaDestinoText, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
-                    .addComponent(MontoText)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(EnviarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)))
-                .addContainerGap(62, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(126, 126, 126))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CuentaDestinoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CuentaDestinoLabel))
-                .addGap(22, 22, 22)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(MontoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CuentaDestinoLabel1))
-                .addGap(26, 26, 26)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(EnviarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(VolverBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(59, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(jPanel2);
-        jPanel2.setBounds(110, 120, 382, 280);
-
-        jLabel4.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Transferir");
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(210, 20, 170, 60);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Fondo00.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/transferencia.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 600, 465);
 
@@ -276,21 +235,24 @@ public TransferenciaFrame(Usuario remitente, LogicaBilletera logica, HomeFrame h
         setLocation(x - mouseX, y - mouseY);
     }//GEN-LAST:event_formMouseDragged
 
+    private void CuentaDestinoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CuentaDestinoTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CuentaDestinoTextActionPerformed
+
+    private void MontoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MontoTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MontoTextActionPerformed
+
   
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel CuentaDestinoLabel;
-    private javax.swing.JLabel CuentaDestinoLabel1;
     private javax.swing.JTextField CuentaDestinoText;
     private javax.swing.JButton EnviarBoton;
     private javax.swing.JTextField MontoText;
     private javax.swing.JButton VolverBoton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

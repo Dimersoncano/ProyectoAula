@@ -162,7 +162,7 @@ public RecargaFrame(Usuario usuario, LogicaBilletera logica, HomeFrame homeFrame
 
         jLabel2.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Recarga");
+        jLabel2.setText("Recargar");
         jPanel2.add(jLabel2);
         jLabel2.setBounds(140, 10, 150, 60);
 

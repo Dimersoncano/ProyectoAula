@@ -104,7 +104,7 @@ public class LoginFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(bIniciarSesion);
-        bIniciarSesion.setBounds(240, 380, 130, 50);
+        bIniciarSesion.setBounds(240, 370, 130, 50);
 
         UsuarioText.setBackground(new java.awt.Color(207, 210, 176));
         UsuarioText.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
@@ -150,7 +150,7 @@ public class LoginFrame extends javax.swing.JFrame {
         getContentPane().add(jLabel3);
         jLabel3.setBounds(170, 430, 140, 16);
 
-        jLabelDominante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Ecommerce.png"))); // NOI18N
+        jLabelDominante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Login (2).png"))); // NOI18N
         getContentPane().add(jLabelDominante);
         jLabelDominante.setBounds(0, 0, 590, 600);
 

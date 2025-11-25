@@ -74,7 +74,7 @@ public class RegistroFrame extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText(" Registro");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(190, 40, 210, 60);
+        jLabel2.setBounds(190, 20, 210, 60);
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/cancelar.png"))); // NOI18N
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -131,7 +131,7 @@ public class RegistroFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(UsuarioText);
-        UsuarioText.setBounds(130, 289, 340, 30);
+        UsuarioText.setBounds(130, 300, 340, 30);
 
         ContraseñaText.setBackground(new java.awt.Color(221, 220, 192));
         ContraseñaText.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -148,7 +148,7 @@ public class RegistroFrame extends javax.swing.JFrame {
         ConfimarText.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         ConfimarText.setBorder(null);
         jPanel1.add(ConfimarText);
-        ConfimarText.setBounds(130, 429, 340, 30);
+        ConfimarText.setBounds(130, 440, 340, 30);
 
         VolverBoton.setBackground(new java.awt.Color(217, 217, 217));
         VolverBoton.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
@@ -163,7 +163,7 @@ public class RegistroFrame extends javax.swing.JFrame {
         jPanel1.add(VolverBoton);
         VolverBoton.setBounds(190, 495, 90, 33);
 
-        RegistrarBoton.setBackground(new java.awt.Color(57, 196, 62));
+        RegistrarBoton.setBackground(new java.awt.Color(31, 114, 27));
         RegistrarBoton.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         RegistrarBoton.setForeground(new java.awt.Color(255, 255, 255));
         RegistrarBoton.setText("Registrar");
@@ -176,7 +176,7 @@ public class RegistroFrame extends javax.swing.JFrame {
         jPanel1.add(RegistrarBoton);
         RegistrarBoton.setBounds(320, 498, 96, 28);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Checkout.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Register.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 600, 600);
 

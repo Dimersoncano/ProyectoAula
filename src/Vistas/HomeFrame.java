@@ -63,17 +63,15 @@ public class HomeFrame extends javax.swing.JFrame {
 
         jLabel8 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        BienvenidaLabel = new javax.swing.JLabel();
-        SaldoLabel = new javax.swing.JLabel();
-        RecargarDineroBoton = new javax.swing.JButton();
-        EnviarDineroBoton = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        BienvenidaLabel = new javax.swing.JLabel();
+        RecargarDineroBoton = new javax.swing.JButton();
+        EnviarDineroBoton = new javax.swing.JButton();
+        SaldoLabel = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -101,42 +99,28 @@ public class HomeFrame extends javax.swing.JFrame {
         jLabel8.setBounds(560, 10, 24, 30);
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jPanel3MouseDragged(evt);
+            }
+        });
+        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel3MousePressed(evt);
+            }
+        });
         jPanel3.setLayout(null);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel2.setFont(new java.awt.Font("Roboto Medium", 1, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Inicio");
+        jPanel3.add(jLabel2);
+        jLabel2.setBounds(240, 20, 130, 60);
 
-        BienvenidaLabel.setFont(new java.awt.Font("Roboto Light", 2, 24)); // NOI18N
-        BienvenidaLabel.setText("Bienvenido, usuario.");
-
-        SaldoLabel.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
-        SaldoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        SaldoLabel.setText("Saldo:$");
-
-        RecargarDineroBoton.setBackground(new java.awt.Color(255, 153, 51));
-        RecargarDineroBoton.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
-        RecargarDineroBoton.setForeground(new java.awt.Color(255, 255, 255));
-        RecargarDineroBoton.setText("Recargar");
-        RecargarDineroBoton.setBorder(null);
-        RecargarDineroBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RecargarDineroBotonActionPerformed(evt);
-            }
-        });
-
-        EnviarDineroBoton.setBackground(new java.awt.Color(102, 255, 102));
-        EnviarDineroBoton.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
-        EnviarDineroBoton.setForeground(new java.awt.Color(255, 255, 255));
-        EnviarDineroBoton.setText("Enviar");
-        EnviarDineroBoton.setBorder(null);
-        EnviarDineroBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EnviarDineroBotonActionPerformed(evt);
-            }
-        });
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/user.png"))); // NOI18N
-
-        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("© 2025 Money Tress. Todos los derechos reservados.");
+        jPanel3.add(jLabel7);
+        jLabel7.setBounds(0, 580, 290, 16);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/cerrar-sesion.png"))); // NOI18N
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -144,6 +128,8 @@ public class HomeFrame extends javax.swing.JFrame {
                 jLabel3MouseClicked(evt);
             }
         });
+        jPanel3.add(jLabel3);
+        jLabel3.setBounds(100, 90, 32, 32);
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/historial.png"))); // NOI18N
@@ -153,75 +139,53 @@ public class HomeFrame extends javax.swing.JFrame {
                 jLabel4MouseClicked(evt);
             }
         });
+        jPanel3.add(jLabel4);
+        jLabel4.setBounds(470, 90, 40, 40);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel3)
-                        .addGap(70, 70, 70)
-                        .addComponent(BienvenidaLabel))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(120, 120, 120)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(37, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(SaldoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(146, 146, 146))
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(EnviarDineroBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(RecargarDineroBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(178, 178, 178))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BienvenidaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(SaldoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(RecargarDineroBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(EnviarDineroBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        BienvenidaLabel.setFont(new java.awt.Font("Roboto Medium", 1, 24)); // NOI18N
+        BienvenidaLabel.setForeground(new java.awt.Color(255, 255, 255));
+        BienvenidaLabel.setText("Bienvenido, usuario.");
+        jPanel3.add(BienvenidaLabel);
+        BienvenidaLabel.setBounds(180, 90, 230, 31);
 
-        jPanel3.add(jPanel1);
-        jPanel1.setBounds(80, 100, 440, 430);
+        RecargarDineroBoton.setBackground(new java.awt.Color(255, 174, 0));
+        RecargarDineroBoton.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        RecargarDineroBoton.setForeground(new java.awt.Color(255, 255, 255));
+        RecargarDineroBoton.setText("Recargar");
+        RecargarDineroBoton.setBorder(null);
+        RecargarDineroBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RecargarDineroBotonActionPerformed(evt);
+            }
+        });
+        jPanel3.add(RecargarDineroBoton);
+        RecargarDineroBoton.setBounds(148, 418, 100, 35);
 
-        jLabel2.setFont(new java.awt.Font("Roboto", 1, 48)); // NOI18N
-        jLabel2.setText("Inicio");
-        jPanel3.add(jLabel2);
-        jLabel2.setBounds(240, 30, 130, 60);
+        EnviarDineroBoton.setBackground(new java.awt.Color(31, 114, 27));
+        EnviarDineroBoton.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        EnviarDineroBoton.setForeground(new java.awt.Color(255, 255, 255));
+        EnviarDineroBoton.setText("Enviar");
+        EnviarDineroBoton.setBorder(null);
+        EnviarDineroBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EnviarDineroBotonActionPerformed(evt);
+            }
+        });
+        jPanel3.add(EnviarDineroBoton);
+        EnviarDineroBoton.setBounds(359, 418, 110, 35);
 
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("© 2025 Money Tress. Todos los derechos reservados.");
-        jPanel3.add(jLabel7);
-        jLabel7.setBounds(0, 580, 290, 16);
+        SaldoLabel.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
+        SaldoLabel.setForeground(new java.awt.Color(255, 255, 255));
+        SaldoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        SaldoLabel.setText("Saldo:$");
+        jPanel3.add(SaldoLabel);
+        SaldoLabel.setBounds(210, 290, 190, 29);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Fondo00.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/user.png"))); // NOI18N
+        jPanel3.add(jLabel6);
+        jLabel6.setBounds(240, 150, 120, 110);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Inicio.png"))); // NOI18N
         jPanel3.add(jLabel1);
         jLabel1.setBounds(0, 0, 600, 600);
 
@@ -233,10 +197,12 @@ public class HomeFrame extends javax.swing.JFrame {
 
     private void RecargarDineroBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RecargarDineroBotonActionPerformed
         new RecargaFrame(usuario, logica, this).setVisible(true);
+         this.setVisible(false);
     }//GEN-LAST:event_RecargarDineroBotonActionPerformed
 
     private void EnviarDineroBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarDineroBotonActionPerformed
         new TransferenciaFrame(usuario, logica, this).setVisible(true);
+         this.setVisible(false);
     }//GEN-LAST:event_EnviarDineroBotonActionPerformed
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
@@ -277,15 +243,23 @@ public class HomeFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
-        mouseX = evt.getX();
-        mouseY = evt.getY();
+        
     }//GEN-LAST:event_formMouseClicked
 
     private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
-        int x = evt.getXOnScreen();
-        int y = evt.getYOnScreen();
-        setLocation(x - mouseX, y - mouseY);
+        
     }//GEN-LAST:event_formMouseDragged
+
+    private void jPanel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MousePressed
+    mouseX = evt.getX();
+    mouseY = evt.getY();
+    }//GEN-LAST:event_jPanel3MousePressed
+
+    private void jPanel3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseDragged
+    int x = evt.getXOnScreen();
+    int y = evt.getYOnScreen();
+    setLocation(x - mouseX, y - mouseY);  // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel3MouseDragged
 
   
     
@@ -302,8 +276,6 @@ public class HomeFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }
