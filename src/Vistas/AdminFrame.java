@@ -5,18 +5,24 @@
 package Vistas;
 
 import Logica.LogicaBilletera;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Dimerson
  */
 public class AdminFrame extends javax.swing.JFrame {
-
+    private int botonXOriginal;
+    private int botonYOriginal;
+    
+    
     /**
      * Creates new form AdminFrame
      */
+    
     public AdminFrame() {
         initComponents();
+        setLocationRelativeTo(null);
     }
     
     private LogicaBilletera logica;
@@ -25,8 +31,11 @@ public AdminFrame(LogicaBilletera logica) {
     this.logica = logica;
     initComponents();
     setLocationRelativeTo(null); // Centrar la ventana
-
-    // Mostrar los datos
+    
+    botonXOriginal = bCerrarSesion.getX();
+    botonYOriginal = bCerrarSesion.getY();
+    bCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    
     UsuarioValor.setText(String.valueOf(logica.getUsuarios().size()));
 
     int totalTransacciones = 0;
@@ -42,6 +51,47 @@ public AdminFrame(LogicaBilletera logica) {
     TransaccionesValor.setText(String.valueOf(totalTransacciones));
     SaldoValor.setText("$" + saldoGlobal);
 }
+private void animacionPulseHover(javax.swing.JLabel label) {
+    javax.swing.Timer timer = new javax.swing.Timer(15, null);
+
+    final int steps = 6;
+    final int desplazamiento = 2; // movimiento suave (2 px)
+    final int[] contador = {0};
+    final boolean[] ida = {true};
+
+    timer.addActionListener((e) -> {
+
+        if (ida[0]) {
+            label.setLocation(label.getX(), label.getY() - 1);
+        } else {
+            label.setLocation(label.getX(), label.getY() + 1);
+        }
+
+        contador[0]++;
+
+        if (contador[0] >= steps) {
+            ida[0] = !ida[0];
+            contador[0] = 0;
+        }
+    });
+
+    timer.start();
+
+    // Guardar timer dentro del label para cancelarlo
+    label.putClientProperty("hoverTimer", timer);
+}
+
+private void detenerPulse(javax.swing.JLabel label) {
+    Object timerObj = label.getClientProperty("hoverTimer");
+    if (timerObj instanceof javax.swing.Timer timer) {
+        timer.stop();
+        label.putClientProperty("hoverTimer", null);
+        // devolver el botón a su posición original
+        label.setLocation(botonXOriginal, botonYOriginal);
+    }
+}
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -53,131 +103,116 @@ public AdminFrame(LogicaBilletera logica) {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        CerrarBoton = new javax.swing.JButton();
         TituloLabel = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         UsuarioValor = new javax.swing.JLabel();
-        SaldoValor = new javax.swing.JLabel();
         TransaccionesValor = new javax.swing.JLabel();
+        SaldoValor = new javax.swing.JLabel();
+        bCerrarSesion = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(590, 420));
+        setMinimumSize(new java.awt.Dimension(1200, 600));
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1200, 600));
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1200, 600));
         jPanel1.setLayout(null);
-
-        jLabel4.setFont(new java.awt.Font("Roboto", 1, 48)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText(" Administrador");
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(120, 10, 350, 50);
-
-        CerrarBoton.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        CerrarBoton.setText("Cerrar sesion");
-        CerrarBoton.setBorder(null);
-        CerrarBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CerrarBotonActionPerformed(evt);
-            }
-        });
-        jPanel1.add(CerrarBoton);
-        CerrarBoton.setBounds(220, 330, 150, 40);
         jPanel1.add(TituloLabel);
         TituloLabel.setBounds(268, 218, 60, 29);
 
-        jLabel3.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel3.setText("Saldo global");
+        UsuarioValor.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        UsuarioValor.setForeground(new java.awt.Color(255, 255, 255));
+        UsuarioValor.setText("0");
+        jPanel1.add(UsuarioValor);
+        UsuarioValor.setBounds(300, 70, 20, 40);
 
-        jLabel1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel1.setText("Total de usuarios");
+        TransaccionesValor.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        TransaccionesValor.setForeground(new java.awt.Color(255, 255, 255));
+        TransaccionesValor.setText("0");
+        jPanel1.add(TransaccionesValor);
+        TransaccionesValor.setBounds(510, 70, 19, 40);
 
-        jLabel2.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel2.setText("Total de transacciones");
+        SaldoValor.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        SaldoValor.setForeground(new java.awt.Color(255, 255, 255));
+        SaldoValor.setText("0");
+        jPanel1.add(SaldoValor);
+        SaldoValor.setBounds(689, 70, 110, 30);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addComponent(SaldoValor, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TransaccionesValor, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(UsuarioValor, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(142, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(UsuarioValor, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TransaccionesValor, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SaldoValor, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(90, Short.MAX_VALUE))
-        );
+        bCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Buttom cerrar sesion.png"))); // NOI18N
+        bCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bCerrarSesionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bCerrarSesionMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                bCerrarSesionMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                bCerrarSesionMouseReleased(evt);
+            }
+        });
+        jPanel1.add(bCerrarSesion);
+        bCerrarSesion.setBounds(30, 530, 170, 40);
 
-        jPanel1.add(jPanel2);
-        jPanel2.setBounds(60, 60, 480, 230);
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Fondo01.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Ventana Administrador.png"))); // NOI18N
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(0, 0, 590, 420);
+        jLabel5.setBounds(0, 0, 1200, 600);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 590, 420);
+        jPanel1.setBounds(0, 0, 1200, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void CerrarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarBotonActionPerformed
-        CerrarBoton.addActionListener(new java.awt.event.ActionListener() {
-    public void actionPerformed(java.awt.event.ActionEvent evt) {
-        new LoginFrame(logica).setVisible(true); // usar la MISMA instancia
-        dispose(); // cerrar admin
-    }
-});
+    private void bCerrarSesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bCerrarSesionMouseExited
+        bCerrarSesion.setLocation(botonXOriginal, botonYOriginal);
+    }//GEN-LAST:event_bCerrarSesionMouseExited
 
-    }//GEN-LAST:event_CerrarBotonActionPerformed
+    private void bCerrarSesionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bCerrarSesionMousePressed
+        bCerrarSesion.setLocation(botonXOriginal, botonYOriginal - 1);
+        int confirmacion = JOptionPane.showConfirmDialog(
+            null,
+            "¿Deseas cerrar la sesion?",
+            "Confirmación",
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.QUESTION_MESSAGE
+        );
+
+        if (confirmacion == JOptionPane.YES_OPTION) {
+            new LoginFrame(logica).setVisible(true); // ✅ Reutiliza la misma instancia
+            this.dispose();
+    }
+    }//GEN-LAST:event_bCerrarSesionMousePressed
+
+    private void bCerrarSesionMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bCerrarSesionMouseReleased
+        // Vuelve al estado hover (levemente levantado)
+    if (bCerrarSesion.getBounds().contains(evt.getPoint())) {
+        // Sigue encima del botón
+        bCerrarSesion.setLocation(botonXOriginal, botonYOriginal - 2);
+    } else {
+        // El mouse se fue mientras hacía clic
+        bCerrarSesion.setLocation(botonXOriginal, botonYOriginal);
+    }
+    }//GEN-LAST:event_bCerrarSesionMouseReleased
+
+    private void bCerrarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bCerrarSesionMouseEntered
+        bCerrarSesion.setLocation(botonXOriginal, botonYOriginal - 2);
+    }//GEN-LAST:event_bCerrarSesionMouseEntered
 
    
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CerrarBoton;
     private javax.swing.JLabel SaldoValor;
     private javax.swing.JLabel TituloLabel;
     private javax.swing.JLabel TransaccionesValor;
     private javax.swing.JLabel UsuarioValor;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel bCerrarSesion;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

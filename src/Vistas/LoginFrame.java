@@ -12,18 +12,29 @@ import Vistas.HomeFrame;
  * @author Dimerson
  */
 public class LoginFrame extends javax.swing.JFrame {
-
+    
     // Lógica compartida de la billetera
     private LogicaBilletera logica;
-    private int mouseX, mouseY;
 
+    private int mouseX, mouseY;
+    
+    private int botonXOriginal;
+    private int botonYOriginal;
 
     // Constructor que recibe la lógica
     public LoginFrame(LogicaBilletera logica) {
         this.logica = logica;
         initComponents();
         setLocationRelativeTo(null); // Centra la ventana
+
+        
+        botonXOriginal = bIniciarSesion.getX();
+        botonYOriginal = bIniciarSesion.getY();
+        bIniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        
     }
+
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,9 +48,9 @@ public class LoginFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        bIniciarSesion = new javax.swing.JLabel();
         UsuarioText = new javax.swing.JTextField();
         ContraseñaText = new javax.swing.JPasswordField();
-        IngresarBoton = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabelDominante = new javax.swing.JLabel();
@@ -77,6 +88,24 @@ public class LoginFrame extends javax.swing.JFrame {
         getContentPane().add(jLabel8);
         jLabel8.setBounds(560, 10, 24, 30);
 
+        bIniciarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/bIniciarSesion.png"))); // NOI18N
+        bIniciarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bIniciarSesionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bIniciarSesionMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                bIniciarSesionMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                bIniciarSesionMouseReleased(evt);
+            }
+        });
+        getContentPane().add(bIniciarSesion);
+        bIniciarSesion.setBounds(240, 380, 130, 50);
+
         UsuarioText.setBackground(new java.awt.Color(207, 210, 176));
         UsuarioText.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         UsuarioText.setBorder(null);
@@ -93,7 +122,6 @@ public class LoginFrame extends javax.swing.JFrame {
         getContentPane().add(UsuarioText);
         UsuarioText.setBounds(220, 265, 175, 35);
 
-        ContraseñaText.setEditable(false);
         ContraseñaText.setBackground(new java.awt.Color(219, 218, 187));
         ContraseñaText.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         ContraseñaText.setBorder(null);
@@ -104,20 +132,6 @@ public class LoginFrame extends javax.swing.JFrame {
         });
         getContentPane().add(ContraseñaText);
         ContraseñaText.setBounds(220, 328, 175, 35);
-
-        IngresarBoton.setBackground(new java.awt.Color(31, 113, 27));
-        IngresarBoton.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
-        IngresarBoton.setForeground(new java.awt.Color(255, 255, 255));
-        IngresarBoton.setText("Iniciar Sesion");
-        IngresarBoton.setToolTipText("");
-        IngresarBoton.setBorder(null);
-        IngresarBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IngresarBotonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(IngresarBoton);
-        IngresarBoton.setBounds(245, 383, 110, 35);
 
         jLabel5.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 204, 255));
@@ -136,7 +150,7 @@ public class LoginFrame extends javax.swing.JFrame {
         getContentPane().add(jLabel3);
         jLabel3.setBounds(170, 430, 140, 16);
 
-        jLabelDominante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Ecommerce 2.png"))); // NOI18N
+        jLabelDominante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Ecommerce.png"))); // NOI18N
         getContentPane().add(jLabelDominante);
         jLabelDominante.setBounds(0, 0, 590, 600);
 
@@ -162,51 +176,6 @@ public class LoginFrame extends javax.swing.JFrame {
     private void UsuarioTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_UsuarioTextActionPerformed
-
-    private void IngresarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarBotonActionPerformed
-     
-   String usuario = UsuarioText.getText().trim();
-String clave = new String(ContraseñaText.getPassword());
-
-if (usuario.isEmpty()) {
-    JOptionPane.showMessageDialog(this, "El campo usuario no puede estar vacío.");
-    return;
-}
-if (clave.isEmpty()) {
-    JOptionPane.showMessageDialog(this, "El campo contraseña no puede estar vacío.");
-    return;
-}
-if (clave.length() < 6) {
-    JOptionPane.showMessageDialog(this, "La contraseña debe tener al menos 6 caracteres.");
-    return;
-}
-if (!clave.matches(".*[a-zA-Z].*") || !clave.matches(".*\\d.*")) {
-    JOptionPane.showMessageDialog(this, "La contraseña debe contener letras y números.");
-    return;
-}
-
-try {
-    Usuario u = logica.login(usuario, clave);
-   if (u.getRol().equalsIgnoreCase("admin")) {
-    JOptionPane.showMessageDialog(this, "Bienvenido admin: " + u.getNombre());
-    new AdminFrame(logica).setVisible(true); // Abre el panel de administrador
-    this.dispose(); // Cierra la ventana de login
-    
-}else {
-    new HomeFrame(u, logica).setVisible(true); // 
-    this.dispose();
-}
-
-
-    this.dispose();
-} catch (UsuarioNoEncontradoException ex) {
-    JOptionPane.showMessageDialog(this, ex.getMessage());
-}
-
-        
-        
-        
-    }//GEN-LAST:event_IngresarBotonActionPerformed
 
     private void ContraseñaTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContraseñaTextActionPerformed
         // TODO add your handling code here:
@@ -266,12 +235,75 @@ if (confirmacion == JOptionPane.YES_OPTION) {
         setLocation(x - mouseX, y - mouseY);
     }//GEN-LAST:event_jPanelInicioSesionMouseDragged
 
+    private void bIniciarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bIniciarSesionMouseEntered
+        bIniciarSesion.setLocation(botonXOriginal, botonYOriginal - 2);
+    }//GEN-LAST:event_bIniciarSesionMouseEntered
+
+    private void bIniciarSesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bIniciarSesionMouseExited
+        bIniciarSesion.setLocation(botonXOriginal, botonYOriginal);
+    }//GEN-LAST:event_bIniciarSesionMouseExited
+
+    private void bIniciarSesionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bIniciarSesionMousePressed
+        bIniciarSesion.setLocation(botonXOriginal, botonYOriginal - 1);
+        String usuario = UsuarioText.getText().trim();
+String clave = new String(ContraseñaText.getPassword());
+
+if (usuario.isEmpty()) {
+    JOptionPane.showMessageDialog(this, "El campo usuario no puede estar vacío.");
+    return;
+}
+if (clave.isEmpty()) {
+    JOptionPane.showMessageDialog(this, "El campo contraseña no puede estar vacío.");
+    return;
+}
+if (clave.length() < 6) {
+    JOptionPane.showMessageDialog(this, "La contraseña debe tener al menos 6 caracteres.");
+    return;
+}
+if (!clave.matches(".*[a-zA-Z].*") || !clave.matches(".*\\d.*")) {
+    JOptionPane.showMessageDialog(this, "La contraseña debe contener letras y números.");
+    return;
+}
+
+try {
+    Usuario u = logica.login(usuario, clave);
+   if (u.getRol().equalsIgnoreCase("admin")) {
+    JOptionPane.showMessageDialog(this, "Bienvenido admin: " + u.getNombre());
+    new AdminFrame(logica).setVisible(true); // Abre el panel de administrador
+    this.dispose(); // Cierra la ventana de login
+    
+}else {
+    new HomeFrame(u, logica).setVisible(true); // 
+    this.dispose();
+}
+
+
+    this.dispose();
+} catch (UsuarioNoEncontradoException ex) {
+    JOptionPane.showMessageDialog(this, ex.getMessage());
+}
+
+        
+        
+        
+    }//GEN-LAST:event_bIniciarSesionMousePressed
+
+    private void bIniciarSesionMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bIniciarSesionMouseReleased
+        if (bIniciarSesion.getBounds().contains(evt.getPoint())) {
+        // Sigue encima del botón
+        bIniciarSesion.setLocation(botonXOriginal, botonYOriginal - 2);
+    } else {
+        // El mouse se fue mientras hacía clic
+        bIniciarSesion.setLocation(botonXOriginal, botonYOriginal);
+    }
+    }//GEN-LAST:event_bIniciarSesionMouseReleased
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField ContraseñaText;
-    private javax.swing.JButton IngresarBoton;
     private javax.swing.JTextField UsuarioText;
+    private javax.swing.JLabel bIniciarSesion;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
