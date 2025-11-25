@@ -120,7 +120,7 @@ public class LoginFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(UsuarioText);
-        UsuarioText.setBounds(220, 265, 175, 35);
+        UsuarioText.setBounds(220, 270, 175, 30);
 
         ContraseñaText.setBackground(new java.awt.Color(219, 218, 187));
         ContraseñaText.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
@@ -131,7 +131,7 @@ public class LoginFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(ContraseñaText);
-        ContraseñaText.setBounds(220, 328, 175, 35);
+        ContraseñaText.setBounds(220, 325, 175, 30);
 
         jLabel5.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 204, 255));
@@ -152,7 +152,7 @@ public class LoginFrame extends javax.swing.JFrame {
 
         jLabelDominante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Login (2).png"))); // NOI18N
         getContentPane().add(jLabelDominante);
-        jLabelDominante.setBounds(0, 0, 590, 600);
+        jLabelDominante.setBounds(0, 0, 600, 600);
 
         jPanelInicioSesion.setBackground(new java.awt.Color(204, 204, 204));
         jPanelInicioSesion.setPreferredSize(new java.awt.Dimension(600, 600));
@@ -168,7 +168,7 @@ public class LoginFrame extends javax.swing.JFrame {
         });
         jPanelInicioSesion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanelInicioSesion);
-        jPanelInicioSesion.setBounds(0, 0, 590, 600);
+        jPanelInicioSesion.setBounds(0, 0, 600, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -268,7 +268,7 @@ if (!clave.matches(".*[a-zA-Z].*") || !clave.matches(".*\\d.*")) {
 try {
     Usuario u = logica.login(usuario, clave);
    if (u.getRol().equalsIgnoreCase("admin")) {
-    JOptionPane.showMessageDialog(this, "Bienvenido admin: " + u.getNombre());
+    JOptionPane.showMessageDialog(this, "¡Bienvenido! " + u.getNombre());
     new AdminFrame(logica).setVisible(true); // Abre el panel de administrador
     this.dispose(); // Cierra la ventana de login
     

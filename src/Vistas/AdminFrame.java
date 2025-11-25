@@ -168,7 +168,7 @@ private void detenerPulse(javax.swing.JLabel label) {
         TransaccionesValor.setForeground(new java.awt.Color(255, 255, 255));
         TransaccionesValor.setText("0");
         jPanel1.add(TransaccionesValor);
-        TransaccionesValor.setBounds(510, 70, 19, 40);
+        TransaccionesValor.setBounds(500, 70, 80, 40);
 
         SaldoValor.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         SaldoValor.setForeground(new java.awt.Color(255, 255, 255));
