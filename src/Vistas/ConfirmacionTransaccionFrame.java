@@ -9,19 +9,22 @@ import java.time.format.DateTimeFormatter;
 import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
+import Vistas.HomeFrame;
 
 /**
  *
  * @author Keynner Ramos
  */
 public class ConfirmacionTransaccionFrame extends javax.swing.JFrame {
+    
     private HomeFrame homeFrame;
-    public ConfirmacionTransaccionFrame() {
+    private int mouseX, mouseY;
+    
+     public ConfirmacionTransaccionFrame() {
         initComponents();
         setLocationRelativeTo(null);
-        
     }
-    private int mouseX, mouseY;
+    
     public void cargarDatos(String usuarioDestino, double monto) {
     //lblMensaje.setText("✅ Transacción realizada con éxito");
     lblMonto.setText("$" + monto);
@@ -31,6 +34,7 @@ public class ConfirmacionTransaccionFrame extends javax.swing.JFrame {
     DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
     lblFecha.setText("Fecha de envío: " + ahora.format(formato));
 }
+    
 
 
     /**
@@ -185,7 +189,12 @@ public class ConfirmacionTransaccionFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGuardarJPEGActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.dispose();
+   if (homeFrame != null) {
+        // Si vienes desde HomeFrame, vuelve a ese mismo
+        homeFrame.actualizarSaldo();  // opcional: refresca saldo por si cambió
+        homeFrame.setVisible(true);
+    }
+    this.dispose(); // Cierra la ventana de confirmación                    
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void FondoCapturaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FondoCapturaMousePressed

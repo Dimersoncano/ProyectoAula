@@ -205,8 +205,7 @@ if (monto <= 0) {
 logica.recargarSaldo(usuario, monto);
 JOptionPane.showMessageDialog(this, "Saldo recargado con éxito: $" + monto);
 homeFrame.actualizarSaldo();
-this.dispose();
-
+homeFrame.setVisible(true);
     }//GEN-LAST:event_RecargarBotonActionPerformed
 
     private void MontoTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MontoTextKeyTyped

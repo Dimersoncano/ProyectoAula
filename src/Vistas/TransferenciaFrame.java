@@ -14,17 +14,17 @@ import Vistas.ConfirmacionTransaccionFrame;
  */
 public class TransferenciaFrame extends javax.swing.JFrame {
 
-   private Usuario remitente;
+    private Usuario remitente;
     private LogicaBilletera logica;
     private HomeFrame homeFrame;
     private int mouseX, mouseY;
 
-public TransferenciaFrame(Usuario remitente, LogicaBilletera logica, HomeFrame homeFrame) {
-    this.remitente = remitente;
+    public TransferenciaFrame(Usuario remitente, LogicaBilletera logica, HomeFrame homeFrame) {
+    this.remitente = remitente;   // 👈 AHORA SÍ se inicializa
     this.logica = logica;
     this.homeFrame = homeFrame;
     initComponents();
-    setLocationRelativeTo(null); // Centrar ventana
+    setLocationRelativeTo(null);
 }
 
 
@@ -128,7 +128,7 @@ public TransferenciaFrame(Usuario remitente, LogicaBilletera logica, HomeFrame h
     }// </editor-fold>//GEN-END:initComponents
 
     private void EnviarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarBotonActionPerformed
-                                                   
+        
     String cuentaDestino = CuentaDestinoText.getText().trim();
     String montoStr = MontoText.getText().trim();
 
@@ -192,7 +192,7 @@ public TransferenciaFrame(Usuario remitente, LogicaBilletera logica, HomeFrame h
     receptor.getHistorial().add(new Modelos.Transaccion("Recibo", monto, "Recibido de " + remitente.getNumeroCuenta()));
 
     JOptionPane.showMessageDialog(this, "Transferencia exitosa de $" + monto + " a " + cuentaDestino);
-
+    
     ConfirmacionTransaccionFrame confirmacion = new ConfirmacionTransaccionFrame();
     confirmacion.cargarDatos(cuentaDestino, monto);
     confirmacion.setVisible(true);
@@ -200,23 +200,7 @@ public TransferenciaFrame(Usuario remitente, LogicaBilletera logica, HomeFrame h
     // Actualizar saldo en pantalla de inicio
     homeFrame.actualizarSaldo();
     logica.guardarEstadoSistema();
-    this.dispose();
-    // Registrar en historial
-    /* remitente.getHistorial().add(new Modelos.Transaccion("Envío", monto, "Envío a " + cuentaDestino));
-    receptor.getHistorial().add(new Modelos.Transaccion("Recibo", monto, "Recibido de " + remitente.getNumeroCuenta()));
     
-    JOptionPane.showMessageDialog(this, "Transferencia exitosa de $" + monto + " a " + cuentaDestino);
-    
-    ConfirmacionTransaccionFrame confirmacion = new ConfirmacionTransaccionFrame();
-    confirmacion.cargarDatos(cuentaDestino, monto);
-    confirmacion.setVisible(true);
-    
-        
-    // Actualizar saldo en pantalla de inicio
-    homeFrame.actualizarSaldo();
-
-    this.dispose(); // Cerrar la ventana
-    */
     }//GEN-LAST:event_EnviarBotonActionPerformed
 
     private void VolverBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverBotonActionPerformed

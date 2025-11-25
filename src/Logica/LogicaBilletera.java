@@ -164,4 +164,10 @@ public class LogicaBilletera {
     public Configuracion getConfiguracion() {
         return configuracion;
     }
+    
+    public List<Usuario> obtenerUsuariosParaAdmin() {
+    return new ArrayList<>(usuarios);
+}
+    
+    
 }

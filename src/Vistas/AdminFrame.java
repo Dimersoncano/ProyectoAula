@@ -1,11 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Vistas;
 
 import Logica.LogicaBilletera;
 import javax.swing.JOptionPane;
+import Logica.ListaDobleUsuarios;
+import Modelos.Usuario;
+
 
 /**
  *
@@ -14,6 +13,8 @@ import javax.swing.JOptionPane;
 public class AdminFrame extends javax.swing.JFrame {
     private int botonXOriginal;
     private int botonYOriginal;
+    
+    private ListaDobleUsuarios listaUsuarios;   
     
     
     /**
@@ -30,12 +31,14 @@ public class AdminFrame extends javax.swing.JFrame {
 public AdminFrame(LogicaBilletera logica) {
     this.logica = logica;
     initComponents();
-    setLocationRelativeTo(null); // Centrar la ventana
-    
+    setLocationRelativeTo(null);
+
     botonXOriginal = bCerrarSesion.getX();
     botonYOriginal = bCerrarSesion.getY();
     bCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     
+
+    // Tus estadísticas originales
     UsuarioValor.setText(String.valueOf(logica.getUsuarios().size()));
 
     int totalTransacciones = 0;
@@ -50,7 +53,34 @@ public AdminFrame(LogicaBilletera logica) {
 
     TransaccionesValor.setText(String.valueOf(totalTransacciones));
     SaldoValor.setText("$" + saldoGlobal);
+
+    //  Aquí preparamos la lista doble y mostramos el primer usuario
+    listaUsuarios = new ListaDobleUsuarios();
+    prepararListaUsuarios();   // llena la lista a partir de logica.getUsuarios()
+    mostrarUsuarioActual();    // pinta en los labels
 }
+private boolean prepararListaUsuarios() {
+    if (logica == null) {
+        return false;
+    }
+
+    java.util.List<Usuario> lista = logica.getUsuarios();
+
+    if (lista == null || lista.isEmpty()) {
+        // Aquí sí es válido decir que no hay usuarios
+        JOptionPane.showMessageDialog(this, "No hay usuarios registrados en el sistema.");
+        listaUsuarios = new ListaDobleUsuarios(); // lista vacía
+        return false;
+    }
+
+    if (listaUsuarios == null) {
+        listaUsuarios = new ListaDobleUsuarios();
+    }
+
+    listaUsuarios.construirDesdeLista(lista);
+    return !listaUsuarios.estaVacia();
+}
+
 private void animacionPulseHover(javax.swing.JLabel label) {
     javax.swing.Timer timer = new javax.swing.Timer(15, null);
 
@@ -108,6 +138,12 @@ private void detenerPulse(javax.swing.JLabel label) {
         TransaccionesValor = new javax.swing.JLabel();
         SaldoValor = new javax.swing.JLabel();
         bCerrarSesion = new javax.swing.JLabel();
+        lblSaldoUsuario = new javax.swing.JLabel();
+        lblNombreUsuario = new javax.swing.JLabel();
+        lblCuentaUsuario = new javax.swing.JLabel();
+        lblRolUsuario = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        bSiguiente = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -138,7 +174,7 @@ private void detenerPulse(javax.swing.JLabel label) {
         SaldoValor.setForeground(new java.awt.Color(255, 255, 255));
         SaldoValor.setText("0");
         jPanel1.add(SaldoValor);
-        SaldoValor.setBounds(689, 70, 110, 30);
+        SaldoValor.setBounds(679, 70, 120, 30);
 
         bCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Buttom cerrar sesion.png"))); // NOI18N
         bCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -157,6 +193,44 @@ private void detenerPulse(javax.swing.JLabel label) {
         });
         jPanel1.add(bCerrarSesion);
         bCerrarSesion.setBounds(30, 530, 170, 40);
+
+        lblSaldoUsuario.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        lblSaldoUsuario.setText("Saldo del usuario: -");
+        jPanel1.add(lblSaldoUsuario);
+        lblSaldoUsuario.setBounds(260, 396, 380, 50);
+
+        lblNombreUsuario.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        lblNombreUsuario.setText("Nombre: -");
+        jPanel1.add(lblNombreUsuario);
+        lblNombreUsuario.setBounds(260, 206, 340, 40);
+
+        lblCuentaUsuario.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        lblCuentaUsuario.setText("Cuenta del usuario: -");
+        jPanel1.add(lblCuentaUsuario);
+        lblCuentaUsuario.setBounds(260, 266, 350, 50);
+
+        lblRolUsuario.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        lblRolUsuario.setText("Rol del usuario: -");
+        jPanel1.add(lblRolUsuario);
+        lblRolUsuario.setBounds(260, 336, 360, 40);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/bAnterior.png"))); // NOI18N
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel2MousePressed(evt);
+            }
+        });
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(30, 320, 170, 40);
+
+        bSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/bSiguiente.png"))); // NOI18N
+        bSiguiente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                bSiguienteMousePressed(evt);
+            }
+        });
+        jPanel1.add(bSiguiente);
+        bSiguiente.setBounds(30, 280, 170, 40);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Ventana Administrador.png"))); // NOI18N
         jPanel1.add(jLabel5);
@@ -203,6 +277,67 @@ private void detenerPulse(javax.swing.JLabel label) {
         bCerrarSesion.setLocation(botonXOriginal, botonYOriginal - 2);
     }//GEN-LAST:event_bCerrarSesionMouseEntered
 
+    private void bSiguienteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bSiguienteMousePressed
+
+        if (listaUsuarios == null || listaUsuarios.estaVacia()) {
+        JOptionPane.showMessageDialog(this, "No hay usuarios registrados.");
+        return;
+    }
+
+    if (!listaUsuarios.haySiguiente()) {
+        JOptionPane.showMessageDialog(this, "Ya estás en el último usuario.");
+        return;
+    }
+
+    listaUsuarios.irSiguiente();
+    mostrarUsuarioActual();
+    }//GEN-LAST:event_bSiguienteMousePressed
+
+    private void jLabel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MousePressed
+        if (listaUsuarios == null || listaUsuarios.estaVacia()) {
+        JOptionPane.showMessageDialog(this, "No hay usuarios registrados.");
+        return;
+    }
+
+    if (!listaUsuarios.hayAnterior()) {
+        JOptionPane.showMessageDialog(this, "Ya estás en el primer usuario.");
+        return;
+    }
+
+    listaUsuarios.irAnterior();
+    mostrarUsuarioActual();
+    }//GEN-LAST:event_jLabel2MousePressed
+    private void mostrarUsuarioActual() {
+    if (listaUsuarios == null || listaUsuarios.estaVacia()) {
+        lblNombreUsuario.setText("Nombre: (sin usuarios)");
+        lblCuentaUsuario.setText("Cuenta: -");
+        lblRolUsuario.setText("Rol: -");
+        lblSaldoUsuario.setText("Saldo: -");
+        return;
+    }
+
+    Usuario u = listaUsuarios.getActual();
+    if (u == null) {
+        lblNombreUsuario.setText("Nombre: (sin usuarios)");
+        lblCuentaUsuario.setText("Cuenta: -");
+        lblRolUsuario.setText("Rol: -");
+        lblSaldoUsuario.setText("Saldo: -");
+        return;
+    }
+
+    lblNombreUsuario.setText("Nombre: " + u.getNombre());
+    lblCuentaUsuario.setText("Cuenta: " + u.getNumeroCuenta());
+    lblRolUsuario.setText("Rol: " + u.getRol());
+
+    double saldo = 0.0;
+    if (u.getCuenta() != null) {
+        saldo = u.getCuenta().getSaldo();
+    } else {
+        saldo = u.getSaldo();
+    }
+    lblSaldoUsuario.setText("Saldo: $" + saldo);
+}
+
    
    
 
@@ -212,7 +347,13 @@ private void detenerPulse(javax.swing.JLabel label) {
     private javax.swing.JLabel TransaccionesValor;
     private javax.swing.JLabel UsuarioValor;
     private javax.swing.JLabel bCerrarSesion;
+    private javax.swing.JLabel bSiguiente;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblCuentaUsuario;
+    private javax.swing.JLabel lblNombreUsuario;
+    private javax.swing.JLabel lblRolUsuario;
+    private javax.swing.JLabel lblSaldoUsuario;
     // End of variables declaration//GEN-END:variables
 }

@@ -17,6 +17,7 @@ public class HomeFrame extends javax.swing.JFrame {
     private Modelos.Usuario usuario;
     private LogicaBilletera logica;
     private int mouseX, mouseY;
+    
      
   public HomeFrame(Modelos.Usuario usuario, LogicaBilletera logica) {
     this.usuario = usuario;
@@ -41,6 +42,7 @@ public class HomeFrame extends javax.swing.JFrame {
 
     setLocationRelativeTo(null); // Centrar ventana
 }
+  
 
   public void actualizarSaldo() {
     if (usuario.getCuenta() != null) {
@@ -50,6 +52,7 @@ public class HomeFrame extends javax.swing.JFrame {
         SaldoLabel.setText("Saldo: sin cuenta asociada.");
     }
 }
+  
 
 
     /**
