@@ -15,7 +15,7 @@ public class LoginFrame extends javax.swing.JFrame {
     
     // Lógica compartida de la billetera
     private LogicaBilletera logica;
-
+    
     private int mouseX, mouseY;
     
     private int botonXOriginal;
@@ -26,7 +26,12 @@ public class LoginFrame extends javax.swing.JFrame {
         this.logica = logica;
         initComponents();
         setLocationRelativeTo(null); // Centra la ventana
-
+        
+        // Establecer valor transparente para el fondo de los text field
+        UsuarioText.setOpaque(false);
+        UsuarioText.setBackground(new java.awt.Color(0, 0, 0, 0));
+        ContraseñaText.setOpaque(false);
+        ContraseñaText.setBackground(new java.awt.Color(0, 0, 0, 0));
         
         botonXOriginal = bIniciarSesion.getX();
         botonYOriginal = bIniciarSesion.getY();
@@ -44,9 +49,6 @@ public class LoginFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel4 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         bIniciarSesion = new javax.swing.JLabel();
         UsuarioText = new javax.swing.JTextField();
@@ -58,26 +60,8 @@ public class LoginFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(590, 600));
+        setPreferredSize(new java.awt.Dimension(600, 600));
         getContentPane().setLayout(null);
-
-        jLabel4.setFont(new java.awt.Font("Roboto", 1, 48)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 153, 51));
-        jLabel4.setText("Trees");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(300, 30, 160, 50);
-
-        jLabel2.setFont(new java.awt.Font("Roboto Medium", 1, 48)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Money");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(140, 30, 170, 50);
-
-        jLabel7.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("   © 2025 Money Tress. Todos los derechos reservados.");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(0, 580, 360, 17);
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/cancelar.png"))); // NOI18N
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -104,7 +88,7 @@ public class LoginFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(bIniciarSesion);
-        bIniciarSesion.setBounds(240, 370, 130, 50);
+        bIniciarSesion.setBounds(240, 380, 130, 50);
 
         UsuarioText.setBackground(new java.awt.Color(207, 210, 176));
         UsuarioText.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
@@ -131,10 +115,10 @@ public class LoginFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(ContraseñaText);
-        ContraseñaText.setBounds(220, 325, 175, 30);
+        ContraseñaText.setBounds(225, 325, 170, 40);
 
         jLabel5.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(51, 204, 255));
+        jLabel5.setForeground(new java.awt.Color(0, 255, 51));
         jLabel5.setText("Registrate aqui");
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -142,15 +126,15 @@ public class LoginFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(310, 430, 98, 17);
+        jLabel5.setBounds(310, 430, 110, 17);
 
-        jLabel3.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("   ¿No tienes cuenta?");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(170, 430, 140, 16);
+        jLabel3.setBounds(190, 430, 120, 16);
 
-        jLabelDominante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Login (2).png"))); // NOI18N
+        jLabelDominante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/LoginFrame.png"))); // NOI18N
         getContentPane().add(jLabelDominante);
         jLabelDominante.setBounds(0, 0, 600, 600);
 
@@ -182,8 +166,35 @@ public class LoginFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_ContraseñaTextActionPerformed
 
     private void UsuarioTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_UsuarioTextKeyTyped
-                                                         
-                        char c = evt.getKeyChar();
+                    char c = evt.getKeyChar();
+    String textoActual = UsuarioText.getText();
+
+    // 1. Permitir teclas de control (borrar, flechas, enter, etc.)
+    if (Character.isISOControl(c)) {
+        return;
+    }
+
+    // 2. Permitir números siempre (para documento)
+    if (Character.isDigit(c)) {
+        return;
+    }
+
+    // 3. Permitir SOLO la palabra "admin" como excepción
+    if (Character.isLetter(c)) {
+        String posible = textoActual + c;
+        String posibleLower = posible.toLowerCase();
+
+        // Permitir ir escribiendo: "a", "ad", "adm", "admi", "admin"
+        if ("admin".startsWith(posibleLower)) {
+            return;
+        }
+    }
+
+    // 4. Si llegó aquí, bloquear cualquier otra cosa
+    evt.consume();
+    getToolkit().beep();
+    JOptionPane.showMessageDialog(this, "Solo se permiten números.");                                                     
+                        /*char c = evt.getKeyChar();
 
     // Permitir letras y espacios
     if (Character.isLetter(c) || Character.isWhitespace(c)) {
@@ -199,8 +210,7 @@ public class LoginFrame extends javax.swing.JFrame {
     evt.consume();
     getToolkit().beep();
     JOptionPane.showMessageDialog(this, "Solo se permiten letras.");     
-
-
+*/
     }//GEN-LAST:event_UsuarioTextKeyTyped
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
@@ -244,7 +254,43 @@ if (confirmacion == JOptionPane.YES_OPTION) {
     }//GEN-LAST:event_bIniciarSesionMouseExited
 
     private void bIniciarSesionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bIniciarSesionMousePressed
-        bIniciarSesion.setLocation(botonXOriginal, botonYOriginal - 1);
+      bIniciarSesion.setLocation(botonXOriginal, botonYOriginal - 1);
+
+    String identificador = UsuarioText.getText().trim(); // documento o "admin"
+    String clave = new String(ContraseñaText.getPassword());
+
+    if (identificador.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "El campo documento / usuario admin no puede estar vacío.");
+        return;
+    }
+    if (clave.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "El campo contraseña no puede estar vacío.");
+        return;
+    }
+    if (clave.length() < 6) {
+        JOptionPane.showMessageDialog(this, "La contraseña debe tener al menos 6 caracteres.");
+        return;
+    }
+    if (!clave.matches(".*[a-zA-Z].*") || !clave.matches(".*\\d.*")) {
+        JOptionPane.showMessageDialog(this, "La contraseña debe contener letras y números.");
+        return;
+    }
+
+    try {
+        Usuario u = logica.login(identificador, clave);
+
+        if (u.getRol().equalsIgnoreCase("admin")) {
+            JOptionPane.showMessageDialog(this, "¡Bienvenido! " + u.getNombre());
+            new AdminFrame(logica).setVisible(true); // Panel de administrador
+            this.dispose();
+        } else {
+            new HomeFrame(u, logica).setVisible(true); // Usuario normal
+        }
+
+    } catch (UsuarioNoEncontradoException ex) {
+        JOptionPane.showMessageDialog(this, ex.getMessage());
+    }
+        /*  bIniciarSesion.setLocation(botonXOriginal, botonYOriginal - 1);
         String usuario = UsuarioText.getText().trim();
 String clave = new String(ContraseñaText.getPassword());
 
@@ -282,10 +328,7 @@ try {
 } catch (UsuarioNoEncontradoException ex) {
     JOptionPane.showMessageDialog(this, ex.getMessage());
 }
-
-        
-        
-        
+*/    
     }//GEN-LAST:event_bIniciarSesionMousePressed
 
     private void bIniciarSesionMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bIniciarSesionMouseReleased
@@ -304,11 +347,8 @@ try {
     private javax.swing.JPasswordField ContraseñaText;
     private javax.swing.JTextField UsuarioText;
     private javax.swing.JLabel bIniciarSesion;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabelDominante;
     private javax.swing.JPanel jPanelInicioSesion;

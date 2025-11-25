@@ -149,7 +149,7 @@ public class HomeFrame extends javax.swing.JFrame {
         BienvenidaLabel.setForeground(new java.awt.Color(255, 255, 255));
         BienvenidaLabel.setText("Bienvenido, usuario.");
         jPanel3.add(BienvenidaLabel);
-        BienvenidaLabel.setBounds(180, 90, 230, 31);
+        BienvenidaLabel.setBounds(200, 90, 270, 31);
 
         RecargarDineroBoton.setBackground(new java.awt.Color(255, 174, 0));
         RecargarDineroBoton.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N

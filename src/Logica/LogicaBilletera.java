@@ -32,7 +32,7 @@ public class LogicaBilletera {
      * Carga el estado si existe, si no crea un sistema por defecto.
      */
     public LogicaBilletera() {
-        cargarEstado();  // 🔥 intentamos recuperar todo
+        cargarEstado();  //intentamos recuperar todo
 
         if (usuarios == null) {
             inicializarSistemaPorDefecto();
@@ -98,6 +98,59 @@ public class LogicaBilletera {
      * Registrar un usuario en la billetera.
      */
     public boolean registrarUsuario(Usuario nuevoUsuario) {
+    for (Usuario u : usuarios) {
+        // Validar que no se repita el número de cuenta
+        if (u.getNumeroCuenta().equals(nuevoUsuario.getNumeroCuenta())) {
+            return false;
+        }
+        // Validar que no se repita el DOCUMENTO
+        if (u.getDocumentoIdentidad() != null 
+                && nuevoUsuario.getDocumentoIdentidad() != null
+                && u.getDocumentoIdentidad().equals(nuevoUsuario.getDocumentoIdentidad())) {
+            return false;
+        }
+    }
+
+    Cuenta cuenta = new Cuenta(nuevoUsuario.getNumeroCuenta(), 0.0, "Ahorros");
+    nuevoUsuario.setCuenta(cuenta);
+
+    usuarios.add(nuevoUsuario);
+
+    administrador.registrarNuevoUsuario();
+
+    guardarEstado();
+
+    return true;
+}
+    public Usuario buscarUsuarioPorDocumento(String documento) {
+    for (Usuario u : usuarios) {
+        if (u.getDocumentoIdentidad() != null
+                && u.getDocumentoIdentidad().equals(documento)) {
+            return u;
+        }
+    }
+    return null;
+}
+    public Usuario login(String identificador, String clave) throws UsuarioNoEncontradoException {
+    // 1. Primero verificamos si es el ADMIN
+    if (administrador.getNombre().equals(identificador) && administrador.getClave().equals(clave)) {
+        Usuario adminTemp = new Usuario("Administrador", "admin", "admin123", "admin");
+        return adminTemp;
+    }
+
+    // 2. Si no es admin, se asume que es DOCUMENTO DE IDENTIDAD
+    for (Usuario u : usuarios) {
+        if (u.getDocumentoIdentidad() != null
+                && u.getDocumentoIdentidad().equals(identificador)
+                && u.getContraseña().equals(clave)) {
+            return u;
+        }
+    }
+
+    throw new UsuarioNoEncontradoException("Documento o contraseña incorrectos");
+}
+
+  /*  public boolean registrarUsuario(Usuario nuevoUsuario) {
         for (Usuario u : usuarios) {
             if (u.getNumeroCuenta().equals(nuevoUsuario.getNumeroCuenta())) {
                 return false; // Ya existe
@@ -115,10 +168,27 @@ public class LogicaBilletera {
 
         return true;
     }
+    public Usuario login(String identificador, String clave) throws UsuarioNoEncontradoException {
+    // 1. Primero verificamos si es el ADMIN
+    if (administrador.getNombre().equals(identificador) && administrador.getClave().equals(clave)) {
+        Usuario adminTemp = new Usuario("Administrador", "admin", "admin123", "admin");
+        return adminTemp;
+    }
+
+    // 2. Si no es admin, se asume que es DOCUMENTO DE IDENTIDAD
+    for (Usuario u : usuarios) {
+        if (u.getDocumentoIdentidad() != null
+                && u.getDocumentoIdentidad().equals(identificador)
+                && u.getContraseña().equals(clave)) {
+            return u;
+        }
+    }
+
+    throw new UsuarioNoEncontradoException("Documento o contraseña incorrectos");
+}
 
     /**
      * Login: busca usuario o admin.
-     */
     public Usuario login(String usuario, String clave) throws UsuarioNoEncontradoException {
         for (Usuario u : usuarios) {
             if (u.getNumeroCuenta().equals(usuario) && u.getContraseña().equals(clave)) {
@@ -133,7 +203,7 @@ public class LogicaBilletera {
         }
 
         throw new UsuarioNoEncontradoException("Usuario no encontrado o credenciales incorrectas");
-    }
+    } */
 
     /**
      * Recarga de saldo.
@@ -148,7 +218,7 @@ public class LogicaBilletera {
             administrador.registrarTransaccion();
             administrador.agregarSaldoGlobal(monto);
 
-            guardarEstado();  // 🔥 Guardamos todo
+            guardarEstado();  //Guardamos todo
         }
     }
 

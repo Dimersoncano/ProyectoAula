@@ -109,6 +109,11 @@ public class RegistroFrame extends javax.swing.JFrame {
         DocumentoText.setBackground(new java.awt.Color(221, 220, 192));
         DocumentoText.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         DocumentoText.setBorder(null);
+        DocumentoText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DocumentoTextActionPerformed(evt);
+            }
+        });
         DocumentoText.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 DocumentoTextKeyTyped(evt);
@@ -239,8 +244,61 @@ if (!Character.isLetterOrDigit(c)) {
     }//GEN-LAST:event_UsuarioTextKeyTyped
 
     private void RegistrarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarBotonActionPerformed
+        String nombre = NombreText.getText().trim();
+        String documento = DocumentoText.getText().trim();
+        String usuario = UsuarioText.getText().trim();
+        String clave = ContraseñaText.getText().trim();
+        String confirmar = ConfimarText.getText().trim();
+
+        // Validaciones básicas
+        if (nombre.isEmpty() || documento.isEmpty() || usuario.isEmpty() || clave.isEmpty() || confirmar.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Todos los campos son obligatorios.");
+            return;
+        }
+
+        if (clave.length() < 6) {
+            JOptionPane.showMessageDialog(this, "La contraseña debe tener al menos 6 caracteres.");
+            return;
+        }
+
+        if (!clave.matches(".*[a-zA-Z].*") || !clave.matches(".*\\d.*")) {
+            JOptionPane.showMessageDialog(this, "La contraseña debe contener letras y números.");
+            return;
+        }
+
+        if (!clave.equals(confirmar)) {
+            JOptionPane.showMessageDialog(this, "Las contraseñas no coinciden.");
+            return;
+        }
         
-    String nombre = NombreText.getText().trim();
+            
+            // Crear el usuario
+            Usuario nuevo = new Usuario(nombre, usuario, clave, "cliente");
+            nuevo.setDocumentoIdentidad(documento);   // 👈 AQUÍ guardamos el documento en el modelo
+
+// Validar duplicado y registrar
+            if (logica.registrarUsuario(nuevo)) {
+            JOptionPane.showMessageDialog(this, 
+            "Usuario registrado con éxito.\nAhora puedes iniciar sesión con tu documento de identidad.");
+            new LoginFrame(logica).setVisible(true);
+            this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(this, "Ya existe un usuario con ese nombre de cuenta.");
+}
+        
+        /* Crear el usuario
+        Usuario nuevo = new Usuario(nombre, usuario, clave, "cliente");
+        nuevo.setDocumentoIdentidad(documento); //IMPORTANTE: guardamos el documento en el modelo
+
+        // Validar duplicado y registrar
+        if (logica.registrarUsuario(nuevo)) {
+            JOptionPane.showMessageDialog(this, "Usuario registrado con éxito.\nAhora puedes iniciar sesión con tu documento de identidad.");
+            new LoginFrame(logica).setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, "Ya existe un usuario con ese nombre de cuenta.");
+        } */   
+  /*String nombre = NombreText.getText().trim();
     String documento = DocumentoText.getText().trim();
     String usuario = UsuarioText.getText().trim();
     String clave = ContraseñaText.getText().trim();
@@ -279,7 +337,7 @@ if (!Character.isLetterOrDigit(c)) {
         JOptionPane.showMessageDialog(this, "Ya existe un usuario con ese nombre de cuenta.");
     }
 
-       
+       */
     }//GEN-LAST:event_RegistrarBotonActionPerformed
 
     private void VolverBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverBotonActionPerformed
@@ -320,6 +378,10 @@ if (!Character.isLetterOrDigit(c)) {
     private void UsuarioTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_UsuarioTextActionPerformed
+
+    private void DocumentoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DocumentoTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DocumentoTextActionPerformed
 
     
     

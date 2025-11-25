@@ -21,6 +21,8 @@ public class Usuario implements Serializable {
     private TarjetaBancaria tarjeta;
     private String rol; //  "usuario" o "admin"
     private String documento;
+    private String documentoIdentidad;
+
     /**
      * Constructor principal con rol incluido.
      * @param nombre Nombre completo del usuario.
@@ -77,6 +79,13 @@ public class Usuario implements Serializable {
     public String getDocumento() {
         return documento;
     }
+    public String getDocumentoIdentidad() {
+    return documentoIdentidad;
+}
+
+    public void setDocumentoIdentidad(String documentoIdentidad) {
+    this.documentoIdentidad = documentoIdentidad;
+}
 
     public void setDocumento(String documento) {
         this.documento = documento;
