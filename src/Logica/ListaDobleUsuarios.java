@@ -1,7 +1,7 @@
- package Logica;
+package Logica;
 
-import java.util.List;
-import Modelos.Usuario;
+import java.util.List; // Importamos la lista para poder recibir usuarios
+import Modelos.Usuario; // Importamos la clase Usuario
 
 /**
  * Implementación de una lista doblemente enlazada diseñada para recorrer
@@ -10,6 +10,8 @@ import Modelos.Usuario;
  * Esta estructura permite navegar hacia adelante y hacia atrás entre los
  * elementos, manteniendo un nodo actual que representa el usuario que se está
  * visualizando en un momento dado.
+ * Piensa en esto como una fila de personas tomadas de las manos: puedes ir hacia
+ * adelante o hacia atrás.
  */
 public class ListaDobleUsuarios {
 
@@ -19,42 +21,45 @@ public class ListaDobleUsuarios {
      * - Un objeto Usuario.
      * - Una referencia al nodo anterior.
      * - Una referencia al nodo siguiente.
+     * Es como si cada persona tuviera una mano agarrada a quien está adelante
+     * y otra a quien está atrás.
      */
     private static class Nodo {
-        Usuario dato;
-        Nodo anterior;
-        Nodo siguiente;
+        Usuario dato; // Aquí guardamos al usuario
+        Nodo anterior; // Quién está antes en la fila
+        Nodo siguiente; // Quién está después en la fila
 
         /**
          * Constructor del nodo.
          * @param dato usuario almacenado en el nodo.
          */
         Nodo(Usuario dato) {
-            this.dato = dato;
+            this.dato = dato; // Guardamos al usuario en este nodo
         }
     }
 
     /** Primer nodo de la lista. */
-    private Nodo cabeza;
+    private Nodo cabeza; // Es como el primero de la fila
 
     /** Último nodo de la lista. */
-    private Nodo cola;
+    private Nodo cola; // El último de la fila
 
     /** Nodo actualmente seleccionado en la navegación. */
-    private Nodo actual;
+    private Nodo actual; // Usuario que estamos viendo ahora
 
     /** Cantidad de usuarios almacenados en la lista. */
-    private int tamaño;
+    private int tamaño; // Cuántos nodos tiene la lista
 
     /**
      * Constructor de la lista doblemente enlazada.
      * Inicializa punteros en nulo y tamaño en cero.
+     * Es como empezar una fila completamente vacía.
      */
     public ListaDobleUsuarios() {
-        cabeza = null;
-        cola = null;
-        actual = null;
-        tamaño = 0;
+        cabeza = null; // No hay primero
+        cola = null;   // No hay último
+        actual = null; // No estamos mirando a nadie
+        tamaño = 0;    // No hay usuarios
     }
 
     /**
@@ -72,16 +77,16 @@ public class ListaDobleUsuarios {
 
         // Si la lista recibida es nula o vacía, se deja la lista enlazada vacía
         if (usuarios == null || usuarios.isEmpty()) {
-            return;
+            return; // No hay nada que construir
         }
 
         // Inserta cada usuario como nodo al final de la lista
         for (Usuario u : usuarios) {
-            insertarAlFinal(u);
+            insertarAlFinal(u); // Los vamos agregando al final
         }
 
         // Una vez construida la lista, el nodo actual se ubica en el primero
-        actual = cabeza;
+        actual = cabeza; // Comenzamos mirando al primero
     }
 
     /**
@@ -90,20 +95,20 @@ public class ListaDobleUsuarios {
      * @param usuario el usuario que se quiere agregar como nodo.
      */
     private void insertarAlFinal(Usuario usuario) {
-        Nodo nuevo = new Nodo(usuario);
+        Nodo nuevo = new Nodo(usuario); // Creamos el nuevo nodo
 
         // Si la lista está vacía, el nuevo nodo es cabeza y cola
         if (cabeza == null) {
-            cabeza = nuevo;
-            cola = nuevo;
+            cabeza = nuevo; // Ahora él es el primero
+            cola = nuevo;   // Y también el último
         } else {
             // Conexión con el último nodo y actualización de cola
-            cola.siguiente = nuevo;
-            nuevo.anterior = cola;
-            cola = nuevo;
+            cola.siguiente = nuevo; // El antiguo último apunta al nuevo
+            nuevo.anterior = cola;  // El nuevo sabe quién estaba antes
+            cola = nuevo;           // Ahora el nuevo es el último
         }
 
-        tamaño++;
+        tamaño++; // La lista crece en uno
     }
 
     /**
@@ -112,7 +117,7 @@ public class ListaDobleUsuarios {
      * @return true si no contiene elementos, false si tiene al menos uno.
      */
     public boolean estaVacia() {
-        return tamaño == 0;
+        return tamaño == 0; // No hay nodos
     }
 
     /**
@@ -121,7 +126,7 @@ public class ListaDobleUsuarios {
      * @return cantidad de usuarios almacenados.
      */
     public int getTamaño() {
-        return tamaño;
+        return tamaño; // Devolvemos cuántos hay en la fila
     }
 
     /**
@@ -130,7 +135,7 @@ public class ListaDobleUsuarios {
      * @return usuario del nodo actual, o null si no hay nodo posicionado.
      */
     public Usuario getActual() {
-        return (actual != null) ? actual.dato : null;
+        return (actual != null) ? actual.dato : null; // Devolvemos a quien estamos mirando
     }
 
     /**
@@ -139,7 +144,7 @@ public class ListaDobleUsuarios {
      * @return true si hay un siguiente, false si el actual es el último.
      */
     public boolean haySiguiente() {
-        return actual != null && actual.siguiente != null;
+        return actual != null && actual.siguiente != null; // ¿Hay alguien adelante?
     }
 
     /**
@@ -148,7 +153,7 @@ public class ListaDobleUsuarios {
      * @return true si hay anterior, false si el actual es el primero.
      */
     public boolean hayAnterior() {
-        return actual != null && actual.anterior != null;
+        return actual != null && actual.anterior != null; // ¿Hay alguien atrás?
     }
 
     /**
@@ -157,11 +162,11 @@ public class ListaDobleUsuarios {
      * @return el usuario del nuevo nodo actual, o null si no hay siguiente.
      */
     public Usuario irSiguiente() {
-        if (haySiguiente()) {
-            actual = actual.siguiente;
-            return actual.dato;
+        if (haySiguiente()) { // Si hay alguien adelante
+            actual = actual.siguiente; // Caminamos hacia adelante
+            return actual.dato; // Mostramos al nuevo usuario
         }
-        return null;
+        return null; // No se puede avanzar
     }
 
     /**
@@ -170,11 +175,11 @@ public class ListaDobleUsuarios {
      * @return el usuario del nuevo nodo actual, o null si no hay anterior.
      */
     public Usuario irAnterior() {
-        if (hayAnterior()) {
-            actual = actual.anterior;
-            return actual.dato;
+        if (hayAnterior()) { // Si hay alguien atrás
+            actual = actual.anterior; // Caminamos hacia atrás
+            return actual.dato; // Mostramos al usuario anterior
         }
-        return null;
+        return null; // No se puede retroceder
     }
 
     /**
@@ -182,7 +187,7 @@ public class ListaDobleUsuarios {
      * Útil para reiniciar la navegación.
      */
     public void irAlPrimero() {
-        actual = cabeza;
+        actual = cabeza; // Miramos al primero en la fila
     }
 
     /**
@@ -190,6 +195,6 @@ public class ListaDobleUsuarios {
      * Permite acceder directamente al último usuario.
      */
     public void irAlUltimo() {
-        actual = cola;
+        actual = cola; // Miramos al último
     }
 }
