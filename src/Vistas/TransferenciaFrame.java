@@ -25,6 +25,12 @@ public class TransferenciaFrame extends javax.swing.JFrame {
     this.homeFrame = homeFrame;
     initComponents();
     setLocationRelativeTo(null);
+    
+    MontoText.setOpaque(false);
+    MontoText.setBackground(new java.awt.Color(0, 0, 0, 0));
+    
+    CuentaDestinoText.setOpaque(false);
+    CuentaDestinoText.setBackground(new java.awt.Color(0, 0, 0, 0));
 }
 
 
@@ -38,15 +44,14 @@ public class TransferenciaFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
         CuentaDestinoText = new javax.swing.JTextField();
         MontoText = new javax.swing.JTextField();
-        VolverBoton = new javax.swing.JButton();
-        EnviarBoton = new javax.swing.JButton();
+        EnviarBoton = new javax.swing.JLabel();
+        VolverBoton = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(600, 460));
+        setMinimumSize(new java.awt.Dimension(500, 500));
         setUndecorated(true);
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -61,16 +66,12 @@ public class TransferenciaFrame extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setMinimumSize(new java.awt.Dimension(500, 500));
         jPanel1.setLayout(null);
 
-        jLabel4.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Transferir");
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(210, 20, 170, 60);
-
         CuentaDestinoText.setBackground(new java.awt.Color(207, 210, 176));
-        CuentaDestinoText.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        CuentaDestinoText.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        CuentaDestinoText.setForeground(new java.awt.Color(255, 255, 255));
         CuentaDestinoText.setBorder(null);
         CuentaDestinoText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,10 +79,11 @@ public class TransferenciaFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(CuentaDestinoText);
-        CuentaDestinoText.setBounds(190, 148, 210, 30);
+        CuentaDestinoText.setBounds(130, 290, 280, 50);
 
         MontoText.setBackground(new java.awt.Color(207, 210, 176));
-        MontoText.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        MontoText.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        MontoText.setForeground(new java.awt.Color(255, 255, 255));
         MontoText.setBorder(null);
         MontoText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,47 +91,62 @@ public class TransferenciaFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(MontoText);
-        MontoText.setBounds(190, 235, 210, 30);
+        MontoText.setBounds(130, 200, 280, 50);
 
-        VolverBoton.setBackground(new java.awt.Color(217, 217, 217));
-        VolverBoton.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
-        VolverBoton.setForeground(new java.awt.Color(255, 255, 255));
-        VolverBoton.setText("volver");
-        VolverBoton.setBorder(null);
-        VolverBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                VolverBotonActionPerformed(evt);
-            }
-        });
-        jPanel1.add(VolverBoton);
-        VolverBoton.setBounds(170, 305, 111, 33);
-
-        EnviarBoton.setBackground(new java.awt.Color(31, 114, 27));
-        EnviarBoton.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
-        EnviarBoton.setForeground(new java.awt.Color(255, 255, 255));
-        EnviarBoton.setText("Enviar Dinero");
-        EnviarBoton.setBorder(null);
-        EnviarBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EnviarBotonActionPerformed(evt);
+        EnviarBoton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/bEnviar (1).png"))); // NOI18N
+        EnviarBoton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                EnviarBotonMousePressed(evt);
             }
         });
         jPanel1.add(EnviarBoton);
-        EnviarBoton.setBounds(320, 305, 111, 33);
+        EnviarBoton.setBounds(260, 350, 160, 70);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/transferencia.png"))); // NOI18N
+        VolverBoton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/bVolver.png"))); // NOI18N
+        VolverBoton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                VolverBotonMousePressed(evt);
+            }
+        });
+        jPanel1.add(VolverBoton);
+        VolverBoton.setBounds(90, 350, 160, 70);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/TransferenciaFrame.png"))); // NOI18N
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 0, 600, 465);
+        jLabel1.setBounds(0, 0, 500, 500);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 600, 460);
+        jPanel1.setBounds(0, 0, 500, 500);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void EnviarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarBotonActionPerformed
-        
-    String cuentaDestino = CuentaDestinoText.getText().trim();
+    private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
+        mouseX = evt.getX();
+        mouseY = evt.getY();
+    }//GEN-LAST:event_formMousePressed
+
+    private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        setLocation(x - mouseX, y - mouseY);
+    }//GEN-LAST:event_formMouseDragged
+
+    private void CuentaDestinoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CuentaDestinoTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CuentaDestinoTextActionPerformed
+
+    private void MontoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MontoTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MontoTextActionPerformed
+
+    private void VolverBotonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VolverBotonMousePressed
+        this.dispose();            // Cierra Transferencia
+        homeFrame.setVisible(true); // Regresa al Home
+    }//GEN-LAST:event_VolverBotonMousePressed
+
+    private void EnviarBotonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EnviarBotonMousePressed
+        String cuentaDestino = CuentaDestinoText.getText().trim();
     String montoStr = MontoText.getText().trim();
 
     // Validación: campos vacíos
@@ -201,42 +218,17 @@ public class TransferenciaFrame extends javax.swing.JFrame {
     homeFrame.actualizarSaldo();
     logica.guardarEstadoSistema();
     
-    }//GEN-LAST:event_EnviarBotonActionPerformed
-
-    private void VolverBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverBotonActionPerformed
-        this.dispose();            // Cierra Transferencia
-        homeFrame.setVisible(true); // Regresa al Home
-    }//GEN-LAST:event_VolverBotonActionPerformed
-
-    private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
-        mouseX = evt.getX();
-        mouseY = evt.getY();
-    }//GEN-LAST:event_formMousePressed
-
-    private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
-        int x = evt.getXOnScreen();
-        int y = evt.getYOnScreen();
-        setLocation(x - mouseX, y - mouseY);
-    }//GEN-LAST:event_formMouseDragged
-
-    private void CuentaDestinoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CuentaDestinoTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CuentaDestinoTextActionPerformed
-
-    private void MontoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MontoTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MontoTextActionPerformed
+    }//GEN-LAST:event_EnviarBotonMousePressed
 
   
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CuentaDestinoText;
-    private javax.swing.JButton EnviarBoton;
+    private javax.swing.JLabel EnviarBoton;
     private javax.swing.JTextField MontoText;
-    private javax.swing.JButton VolverBoton;
+    private javax.swing.JLabel VolverBoton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

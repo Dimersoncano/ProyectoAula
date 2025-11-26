@@ -70,7 +70,7 @@ public class LoginFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(560, 10, 24, 30);
+        jLabel8.setBounds(560, 0, 40, 50);
 
         bIniciarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/bIniciarSesion.png"))); // NOI18N
         bIniciarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -88,10 +88,11 @@ public class LoginFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(bIniciarSesion);
-        bIniciarSesion.setBounds(240, 380, 130, 50);
+        bIniciarSesion.setBounds(230, 400, 160, 60);
 
         UsuarioText.setBackground(new java.awt.Color(207, 210, 176));
         UsuarioText.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        UsuarioText.setForeground(new java.awt.Color(255, 255, 255));
         UsuarioText.setBorder(null);
         UsuarioText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,10 +105,11 @@ public class LoginFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(UsuarioText);
-        UsuarioText.setBounds(220, 270, 175, 30);
+        UsuarioText.setBounds(205, 250, 200, 40);
 
         ContraseñaText.setBackground(new java.awt.Color(219, 218, 187));
         ContraseñaText.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        ContraseñaText.setForeground(new java.awt.Color(255, 255, 255));
         ContraseñaText.setBorder(null);
         ContraseñaText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,7 +117,7 @@ public class LoginFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(ContraseñaText);
-        ContraseñaText.setBounds(225, 325, 170, 40);
+        ContraseñaText.setBounds(210, 350, 200, 40);
 
         jLabel5.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 255, 51));
@@ -126,13 +128,13 @@ public class LoginFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(310, 430, 110, 17);
+        jLabel5.setBounds(310, 460, 110, 17);
 
         jLabel3.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("   ¿No tienes cuenta?");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(190, 430, 120, 16);
+        jLabel3.setBounds(190, 460, 120, 16);
 
         jLabelDominante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/LoginFrame.png"))); // NOI18N
         getContentPane().add(jLabelDominante);
@@ -286,6 +288,7 @@ if (confirmacion == JOptionPane.YES_OPTION) {
         } else {
             new HomeFrame(u, logica).setVisible(true); // Usuario normal
         }
+        this.dispose();
 
     } catch (UsuarioNoEncontradoException ex) {
         JOptionPane.showMessageDialog(this, ex.getMessage());

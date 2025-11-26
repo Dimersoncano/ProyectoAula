@@ -28,6 +28,17 @@ public class RegistroFrame extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         
+        NombreText.setOpaque(false);
+        NombreText.setBackground(new java.awt.Color(0, 0, 0, 0));
+        DocumentoText.setOpaque(false);
+        DocumentoText.setBackground(new java.awt.Color(0, 0, 0, 0));
+        UsuarioText.setOpaque(false);
+        UsuarioText.setBackground(new java.awt.Color(0, 0, 0, 0));
+        ContraseñaText.setOpaque(false);
+        ContraseñaText.setBackground(new java.awt.Color(0, 0, 0, 0));
+        ConfimarText.setOpaque(false);
+        ConfimarText.setBackground(new java.awt.Color(0, 0, 0, 0));
+        
     }
 
     /**
@@ -40,16 +51,14 @@ public class RegistroFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        RegistrarBoton = new javax.swing.JLabel();
+        VolverBoton = new javax.swing.JLabel();
         NombreText = new javax.swing.JTextField();
         DocumentoText = new javax.swing.JTextField();
         UsuarioText = new javax.swing.JTextField();
         ContraseñaText = new javax.swing.JTextField();
         ConfimarText = new javax.swing.JTextField();
-        VolverBoton = new javax.swing.JButton();
-        RegistrarBoton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -70,12 +79,6 @@ public class RegistroFrame extends javax.swing.JFrame {
         });
         jPanel1.setLayout(null);
 
-        jLabel2.setFont(new java.awt.Font("Roboto Medium", 1, 48)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText(" Registro");
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(190, 20, 210, 60);
-
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/cancelar.png"))); // NOI18N
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -83,15 +86,29 @@ public class RegistroFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(560, 10, 24, 30);
+        jLabel8.setBounds(560, 0, 40, 40);
 
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("© 2025 Money Tress. Todos los derechos reservados.");
-        jPanel1.add(jLabel7);
-        jLabel7.setBounds(0, 580, 290, 16);
+        RegistrarBoton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/bRegistrar.png"))); // NOI18N
+        RegistrarBoton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                RegistrarBotonMousePressed(evt);
+            }
+        });
+        jPanel1.add(RegistrarBoton);
+        RegistrarBoton.setBounds(320, 490, 160, 70);
+
+        VolverBoton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/bVolver.png"))); // NOI18N
+        VolverBoton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                VolverBotonMousePressed(evt);
+            }
+        });
+        jPanel1.add(VolverBoton);
+        VolverBoton.setBounds(140, 490, 160, 70);
 
         NombreText.setBackground(new java.awt.Color(221, 220, 192));
-        NombreText.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        NombreText.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        NombreText.setForeground(new java.awt.Color(255, 255, 255));
         NombreText.setBorder(null);
         NombreText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,10 +121,11 @@ public class RegistroFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(NombreText);
-        NombreText.setBounds(130, 150, 340, 30);
+        NombreText.setBounds(140, 90, 340, 50);
 
         DocumentoText.setBackground(new java.awt.Color(221, 220, 192));
-        DocumentoText.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        DocumentoText.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        DocumentoText.setForeground(new java.awt.Color(255, 255, 255));
         DocumentoText.setBorder(null);
         DocumentoText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,10 +138,11 @@ public class RegistroFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(DocumentoText);
-        DocumentoText.setBounds(130, 210, 340, 30);
+        DocumentoText.setBounds(140, 170, 340, 50);
 
         UsuarioText.setBackground(new java.awt.Color(221, 220, 192));
-        UsuarioText.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        UsuarioText.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        UsuarioText.setForeground(new java.awt.Color(255, 255, 255));
         UsuarioText.setBorder(null);
         UsuarioText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,10 +155,11 @@ public class RegistroFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(UsuarioText);
-        UsuarioText.setBounds(130, 300, 340, 30);
+        UsuarioText.setBounds(140, 270, 340, 50);
 
         ContraseñaText.setBackground(new java.awt.Color(221, 220, 192));
-        ContraseñaText.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        ContraseñaText.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        ContraseñaText.setForeground(new java.awt.Color(255, 255, 255));
         ContraseñaText.setBorder(null);
         ContraseñaText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,41 +167,16 @@ public class RegistroFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(ContraseñaText);
-        ContraseñaText.setBounds(130, 375, 340, 30);
+        ContraseñaText.setBounds(140, 370, 340, 50);
 
         ConfimarText.setBackground(new java.awt.Color(221, 220, 192));
-        ConfimarText.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        ConfimarText.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        ConfimarText.setForeground(new java.awt.Color(255, 255, 255));
         ConfimarText.setBorder(null);
         jPanel1.add(ConfimarText);
-        ConfimarText.setBounds(130, 440, 340, 30);
+        ConfimarText.setBounds(140, 430, 340, 50);
 
-        VolverBoton.setBackground(new java.awt.Color(217, 217, 217));
-        VolverBoton.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        VolverBoton.setForeground(new java.awt.Color(255, 255, 255));
-        VolverBoton.setText("Volver");
-        VolverBoton.setBorder(null);
-        VolverBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                VolverBotonActionPerformed(evt);
-            }
-        });
-        jPanel1.add(VolverBoton);
-        VolverBoton.setBounds(190, 495, 90, 33);
-
-        RegistrarBoton.setBackground(new java.awt.Color(31, 114, 27));
-        RegistrarBoton.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        RegistrarBoton.setForeground(new java.awt.Color(255, 255, 255));
-        RegistrarBoton.setText("Registrar");
-        RegistrarBoton.setBorder(null);
-        RegistrarBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegistrarBotonActionPerformed(evt);
-            }
-        });
-        jPanel1.add(RegistrarBoton);
-        RegistrarBoton.setBounds(320, 498, 96, 28);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Register.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/RegistrarFrame.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 600, 600);
 
@@ -243,7 +238,45 @@ if (!Character.isLetterOrDigit(c)) {
 }
     }//GEN-LAST:event_UsuarioTextKeyTyped
 
-    private void RegistrarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarBotonActionPerformed
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        int confirmacion = JOptionPane.showConfirmDialog(
+            null,
+            "¿Deseas cerrar el programa?",
+            "Confirmación",
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.QUESTION_MESSAGE
+        );
+
+        if (confirmacion == JOptionPane.YES_OPTION) {
+            System.exit(0); // Cierra el programa
+        }
+        // Si elige NO, simplemente no pasa nada
+    }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
+        mouseX = evt.getX();
+        mouseY = evt.getY();
+    }//GEN-LAST:event_jPanel1MousePressed
+
+    private void jPanel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        setLocation(x - mouseX, y - mouseY);
+    }//GEN-LAST:event_jPanel1MouseDragged
+
+    private void NombreTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NombreTextActionPerformed
+
+    private void UsuarioTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UsuarioTextActionPerformed
+
+    private void DocumentoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DocumentoTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DocumentoTextActionPerformed
+
+    private void RegistrarBotonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarBotonMousePressed
         String nombre = NombreText.getText().trim();
         String documento = DocumentoText.getText().trim();
         String usuario = UsuarioText.getText().trim();
@@ -285,103 +318,12 @@ if (!Character.isLetterOrDigit(c)) {
             } else {
                 JOptionPane.showMessageDialog(this, "Ya existe un usuario con ese nombre de cuenta.");
 }
-        
-        /* Crear el usuario
-        Usuario nuevo = new Usuario(nombre, usuario, clave, "cliente");
-        nuevo.setDocumentoIdentidad(documento); //IMPORTANTE: guardamos el documento en el modelo
+    }//GEN-LAST:event_RegistrarBotonMousePressed
 
-        // Validar duplicado y registrar
-        if (logica.registrarUsuario(nuevo)) {
-            JOptionPane.showMessageDialog(this, "Usuario registrado con éxito.\nAhora puedes iniciar sesión con tu documento de identidad.");
-            new LoginFrame(logica).setVisible(true);
-            this.dispose();
-        } else {
-            JOptionPane.showMessageDialog(this, "Ya existe un usuario con ese nombre de cuenta.");
-        } */   
-  /*String nombre = NombreText.getText().trim();
-    String documento = DocumentoText.getText().trim();
-    String usuario = UsuarioText.getText().trim();
-    String clave = ContraseñaText.getText().trim();
-    String confirmar = ConfimarText.getText().trim();
-
-    // Validaciones básicas
-    if (nombre.isEmpty() || documento.isEmpty() || usuario.isEmpty() || clave.isEmpty() || confirmar.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Todos los campos son obligatorios.");
-        return;
-    }
-
-    if (clave.length() < 6) {
-        JOptionPane.showMessageDialog(this, "La contraseña debe tener al menos 6 caracteres.");
-        return;
-    }
-
-    if (!clave.matches(".*[a-zA-Z].*") || !clave.matches(".*\\d.*")) {
-        JOptionPane.showMessageDialog(this, "La contraseña debe contener letras y números.");
-        return;
-    }
-
-    if (!clave.equals(confirmar)) {
-        JOptionPane.showMessageDialog(this, "Las contraseñas no coinciden.");
-        return;
-    }
-
-    // Crear el usuario
-    Usuario nuevo = new Usuario(nombre, usuario, clave, "cliente");
-
-    // Validar duplicado y registrar
-    if (logica.registrarUsuario(nuevo)) {
-        JOptionPane.showMessageDialog(this, "Usuario registrado con éxito.");
+    private void VolverBotonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VolverBotonMousePressed
         new LoginFrame(logica).setVisible(true);
         this.dispose();
-    } else {
-        JOptionPane.showMessageDialog(this, "Ya existe un usuario con ese nombre de cuenta.");
-    }
-
-       */
-    }//GEN-LAST:event_RegistrarBotonActionPerformed
-
-    private void VolverBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverBotonActionPerformed
-        new LoginFrame(logica).setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_VolverBotonActionPerformed
-
-    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-        int confirmacion = JOptionPane.showConfirmDialog(
-            null,
-            "¿Deseas cerrar el programa?",
-            "Confirmación",
-            JOptionPane.YES_NO_OPTION,
-            JOptionPane.QUESTION_MESSAGE
-        );
-
-        if (confirmacion == JOptionPane.YES_OPTION) {
-            System.exit(0); // Cierra el programa
-        }
-        // Si elige NO, simplemente no pasa nada
-    }//GEN-LAST:event_jLabel8MouseClicked
-
-    private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
-        mouseX = evt.getX();
-        mouseY = evt.getY();
-    }//GEN-LAST:event_jPanel1MousePressed
-
-    private void jPanel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseDragged
-        int x = evt.getXOnScreen();
-        int y = evt.getYOnScreen();
-        setLocation(x - mouseX, y - mouseY);
-    }//GEN-LAST:event_jPanel1MouseDragged
-
-    private void NombreTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NombreTextActionPerformed
-
-    private void UsuarioTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UsuarioTextActionPerformed
-
-    private void DocumentoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DocumentoTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DocumentoTextActionPerformed
+    }//GEN-LAST:event_VolverBotonMousePressed
 
     
     
@@ -391,12 +333,10 @@ if (!Character.isLetterOrDigit(c)) {
     private javax.swing.JTextField ContraseñaText;
     private javax.swing.JTextField DocumentoText;
     private javax.swing.JTextField NombreText;
-    private javax.swing.JButton RegistrarBoton;
+    private javax.swing.JLabel RegistrarBoton;
     private javax.swing.JTextField UsuarioText;
-    private javax.swing.JButton VolverBoton;
+    private javax.swing.JLabel VolverBoton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

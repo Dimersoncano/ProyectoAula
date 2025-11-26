@@ -46,10 +46,9 @@ public class ConfirmacionTransaccionFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnGuardarJPEG = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
+        btnGuardarJPEG = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JLabel();
         lblMonto = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lblFecha = new javax.swing.JLabel();
@@ -62,54 +61,55 @@ public class ConfirmacionTransaccionFrame extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnGuardarJPEG.setBackground(new java.awt.Color(217, 217, 217));
-        btnGuardarJPEG.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
-        btnGuardarJPEG.setForeground(new java.awt.Color(255, 255, 255));
-        btnGuardarJPEG.setText("Guardar JPEG");
-        btnGuardarJPEG.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarJPEGActionPerformed(evt);
+        btnGuardarJPEG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/bGuardarAsPDF.png"))); // NOI18N
+        btnGuardarJPEG.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnGuardarJPEGMousePressed(evt);
             }
         });
-        getContentPane().add(btnGuardarJPEG, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 110, -1));
+        getContentPane().add(btnGuardarJPEG, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 160, 70));
 
-        jButton1.setBackground(new java.awt.Color(217, 217, 217));
-        jButton1.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Volver");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, -1, -1));
-
-        jLabel5.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Transacción realizada con éxito");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-
-        jLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Monto enviado:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
-        getContentPane().add(lblMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 145, 20));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/bCerrar.png"))); // NOI18N
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton1MousePressed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, 160, 70));
+
+        lblMonto.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        lblMonto.setForeground(new java.awt.Color(255, 255, 255));
+        lblMonto.setText("lorem");
+        getContentPane().add(lblMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 320, 20));
+
+        jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Fecha de transferencia:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
-        getContentPane().add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 148, 20));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        lblFecha.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        lblFecha.setForeground(new java.awt.Color(255, 255, 255));
+        lblFecha.setText("lorem");
+        getContentPane().add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 330, 20));
+
+        jLabel3.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Destinario:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
-        getContentPane().add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 125, 20));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
+
+        lblUsuario.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        lblUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        lblUsuario.setText("lorem");
+        getContentPane().add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 125, 20));
 
         Wallpaper.setBackground(new java.awt.Color(221, 220, 192));
-        Wallpaper.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Captura Transferencia.png"))); // NOI18N
-        getContentPane().add(Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        Wallpaper.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/ConfirmacionFrame.png"))); // NOI18N
+        getContentPane().add(Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, -1));
 
         FondoCaptura.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -126,89 +126,17 @@ public class ConfirmacionTransaccionFrame extends javax.swing.JFrame {
         FondoCaptura.setLayout(FondoCapturaLayout);
         FondoCapturaLayout.setHorizontalGroup(
             FondoCapturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 240, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         FondoCapturaLayout.setVerticalGroup(
             FondoCapturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 420, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        getContentPane().add(FondoCaptura, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 420));
+        getContentPane().add(FondoCaptura, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnGuardarJPEGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarJPEGActionPerformed
-    try {
-    // Capturar toda la ventana (incluye fondo verde + panel blanco + textos)
-    Window window = SwingUtilities.getWindowAncestor(FondoCaptura);
-
-    BufferedImage imagen = new BufferedImage(
-            window.getWidth(),
-            window.getHeight(),
-            BufferedImage.TYPE_INT_RGB
-    );
-
-    Graphics2D g2d = imagen.createGraphics();
-    window.printAll(g2d);
-    g2d.dispose();
-
-    String rutaProyecto = System.getProperty("user.dir"); 
-    String carpetaCapturas = rutaProyecto + File.separator + "captura de transacciones";
-
-    // Crear carpeta si no existe
-    File carpeta = new File(carpetaCapturas);
-    if (!carpeta.exists()) {
-        carpeta.mkdirs();
-    }
-
-    File archivo = new File(carpeta, "transaccion_" + System.currentTimeMillis() + ".jpeg");
-    ImageIO.write(imagen, "jpeg", archivo);
-
-    JOptionPane.showMessageDialog(this, 
-        "Imagen guardada correctamente en:\n" + archivo.getAbsolutePath()
-    );
-
-} catch (Exception e) {
-    JOptionPane.showMessageDialog(this, "Error al guardar imagen: " + e.getMessage());
-}
-
- // Codigo antiguo de capturas       
-    /* try {
-    BufferedImage imagen = new BufferedImage(FondoCaptura.getWidth(), FondoCaptura.getHeight(), BufferedImage.TYPE_INT_RGB);
-    Graphics2D g2d = imagen.createGraphics();
-    FondoCaptura.paint(g2d);
-    g2d.dispose();
-
-    String rutaProyecto = System.getProperty("user.dir"); // Ruta base del proyecto
-    String carpetaCapturas = rutaProyecto + File.separator + "captura de transacciones";
-
-    // Crear carpeta si no existe
-    File carpeta = new File(carpetaCapturas);
-    if (!carpeta.exists()) {
-        carpeta.mkdirs();
-    }
-
-    File archivo = new File(carpeta, "transaccion_" + System.currentTimeMillis() + ".jpeg");
-    ImageIO.write(imagen, "jpeg", archivo);
-
-    JOptionPane.showMessageDialog(this, "Imagen guardada correctamente en:\n" + archivo.getAbsolutePath());
-} catch (Exception e) {
-    JOptionPane.showMessageDialog(this, "Error al guardar imagen: " + e.getMessage());
-}
-
-*/
-
-    }//GEN-LAST:event_btnGuardarJPEGActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-   if (homeFrame != null) {
-        // Si vienes desde HomeFrame, vuelve a ese mismo
-        homeFrame.actualizarSaldo();  // opcional: refresca saldo por si cambió
-        homeFrame.setVisible(true);
-    }
-    this.dispose(); // Cierra la ventana de confirmación                    
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void FondoCapturaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FondoCapturaMousePressed
         mouseX = evt.getX();
@@ -220,6 +148,74 @@ public class ConfirmacionTransaccionFrame extends javax.swing.JFrame {
         int y = evt.getYOnScreen();
         setLocation(x - mouseX, y - mouseY);
     }//GEN-LAST:event_FondoCapturaMouseDragged
+
+    private void btnGuardarJPEGMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarJPEGMousePressed
+         try {
+        // 1. Obtener el contenedor raíz (toda la ventana Swing)
+        java.awt.Component root = javax.swing.SwingUtilities.getRoot(this);
+        
+        if (root == null) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "No se pudo encontrar la ventana para capturar.");
+            return;
+        }
+
+        int ancho = root.getWidth();
+        int alto  = root.getHeight();
+
+        if (ancho <= 0 || alto <= 0) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "La ventana aún no tiene tamaño válido para capturar.");
+            return;
+        }
+
+        // 2. Crear la imagen con el tamaño de la ventana
+        java.awt.image.BufferedImage imagen = new java.awt.image.BufferedImage(
+                ancho,
+                alto,
+                java.awt.image.BufferedImage.TYPE_INT_ARGB // Soporta fondo transparente
+        );
+
+        java.awt.Graphics2D g2d = imagen.createGraphics();
+        // Pinta TODO lo que está en la ventana (paneles, labels, botones, etc.)
+        root.paintAll(g2d);
+        g2d.dispose();
+
+        // 3. Ruta de la carpeta dentro del proyecto
+        String rutaProyecto = System.getProperty("user.dir");
+        String carpetaCapturas = rutaProyecto + java.io.File.separator + "captura de transacciones";
+
+        java.io.File carpeta = new java.io.File(carpetaCapturas);
+        if (!carpeta.exists()) {
+            carpeta.mkdirs();
+        }
+
+        // 4. Guardar la imagen con nombre único
+        java.io.File archivo = new java.io.File(
+                carpeta,
+                "transaccion_" + System.currentTimeMillis() + ".png" // mejor PNG para transparencia
+        );
+
+        javax.imageio.ImageIO.write(imagen, "png", archivo);
+
+        javax.swing.JOptionPane.showMessageDialog(this,
+            "Imagen guardada correctamente en:\n" + archivo.getAbsolutePath()
+        );
+
+    } catch (Exception e) {
+        javax.swing.JOptionPane.showMessageDialog(this,
+            "Error al guardar imagen: " + e.getMessage());
+    }
+    }//GEN-LAST:event_btnGuardarJPEGMousePressed
+
+    private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
+        if (homeFrame != null) {
+        // Si vienes desde HomeFrame, vuelve a ese mismo
+        homeFrame.actualizarSaldo();  // opcional: refresca saldo por si cambió
+        homeFrame.setVisible(true);
+    }
+    this.dispose(); // Cierra la ventana de confirmación  
+    }//GEN-LAST:event_jButton1MousePressed
 
     /**
      * @param args the command line arguments
@@ -259,12 +255,11 @@ public class ConfirmacionTransaccionFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel FondoCaptura;
     private javax.swing.JLabel Wallpaper;
-    private javax.swing.JButton btnGuardarJPEG;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel btnGuardarJPEG;
+    private javax.swing.JLabel jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblMonto;
     private javax.swing.JLabel lblUsuario;

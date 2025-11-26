@@ -25,11 +25,11 @@ public class HomeFrame extends javax.swing.JFrame {
     initComponents();
 
     // Mostrar saludo personalizado
-    BienvenidaLabel.setText("Bienvenido, " + usuario.getNombre());
+    BienvenidaLabel.setText(usuario.getNombre());
 
     if (usuario.getCuenta() != null) {
         double saldo = usuario.getCuenta().getSaldo();
-        SaldoLabel.setText(saldo >= 0 ? "Saldo: $" + saldo : "Saldo inválido.");
+        SaldoLabel.setText(saldo >= 0 ? "$" + saldo : "Saldo inválido.");
     } else {
         SaldoLabel.setText("Saldo: sin cuenta asociada.");
     }
@@ -47,7 +47,7 @@ public class HomeFrame extends javax.swing.JFrame {
   public void actualizarSaldo() {
     if (usuario.getCuenta() != null) {
         double saldo = usuario.getCuenta().getSaldo();
-        SaldoLabel.setText("Saldo: $" + saldo);
+        SaldoLabel.setText("$ " +saldo);
     } else {
         SaldoLabel.setText("Saldo: sin cuenta asociada.");
     }
@@ -64,21 +64,21 @@ public class HomeFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel8 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         BienvenidaLabel = new javax.swing.JLabel();
-        RecargarDineroBoton = new javax.swing.JButton();
-        EnviarDineroBoton = new javax.swing.JButton();
+        txtLabel1 = new javax.swing.JLabel();
+        txtLabel = new javax.swing.JLabel();
         SaldoLabel = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        EnviarDineroBoton = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        RecargarDineroBoton = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(600, 600));
+        setMinimumSize(new java.awt.Dimension(600, 700));
         setUndecorated(true);
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -92,16 +92,8 @@ public class HomeFrame extends javax.swing.JFrame {
         });
         getContentPane().setLayout(null);
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/cancelar.png"))); // NOI18N
-        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel8MouseClicked(evt);
-            }
-        });
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(560, 10, 24, 30);
-
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel3.setMinimumSize(new java.awt.Dimension(600, 700));
         jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jPanel3MouseDragged(evt);
@@ -114,16 +106,10 @@ public class HomeFrame extends javax.swing.JFrame {
         });
         jPanel3.setLayout(null);
 
-        jLabel2.setFont(new java.awt.Font("Roboto Medium", 1, 48)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Inicio");
-        jPanel3.add(jLabel2);
-        jLabel2.setBounds(240, 20, 130, 60);
-
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("© 2025 Money Tress. Todos los derechos reservados.");
         jPanel3.add(jLabel7);
-        jLabel7.setBounds(0, 580, 290, 16);
+        jLabel7.setBounds(10, 780, 290, 16);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/cerrar-sesion.png"))); // NOI18N
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -132,7 +118,7 @@ public class HomeFrame extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jLabel3);
-        jLabel3.setBounds(100, 90, 32, 32);
+        jLabel3.setBounds(80, 300, 32, 32);
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/historial.png"))); // NOI18N
@@ -143,70 +129,71 @@ public class HomeFrame extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jLabel4);
-        jLabel4.setBounds(470, 90, 40, 40);
+        jLabel4.setBounds(490, 300, 40, 40);
 
-        BienvenidaLabel.setFont(new java.awt.Font("Roboto Medium", 1, 24)); // NOI18N
+        BienvenidaLabel.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         BienvenidaLabel.setForeground(new java.awt.Color(255, 255, 255));
-        BienvenidaLabel.setText("Bienvenido, usuario.");
+        BienvenidaLabel.setText("User name");
         jPanel3.add(BienvenidaLabel);
-        BienvenidaLabel.setBounds(200, 90, 270, 31);
+        BienvenidaLabel.setBounds(90, 31, 130, 50);
 
-        RecargarDineroBoton.setBackground(new java.awt.Color(255, 174, 0));
-        RecargarDineroBoton.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
-        RecargarDineroBoton.setForeground(new java.awt.Color(255, 255, 255));
-        RecargarDineroBoton.setText("Recargar");
-        RecargarDineroBoton.setBorder(null);
-        RecargarDineroBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RecargarDineroBotonActionPerformed(evt);
-            }
-        });
-        jPanel3.add(RecargarDineroBoton);
-        RecargarDineroBoton.setBounds(150, 415, 100, 35);
+        txtLabel1.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
+        txtLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        txtLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtLabel1.setText("Saldo disponible");
+        jPanel3.add(txtLabel1);
+        txtLabel1.setBounds(170, 360, 270, 40);
 
-        EnviarDineroBoton.setBackground(new java.awt.Color(31, 114, 27));
-        EnviarDineroBoton.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
-        EnviarDineroBoton.setForeground(new java.awt.Color(255, 255, 255));
-        EnviarDineroBoton.setText("Enviar");
-        EnviarDineroBoton.setBorder(null);
-        EnviarDineroBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EnviarDineroBotonActionPerformed(evt);
+        txtLabel.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        txtLabel.setForeground(new java.awt.Color(255, 255, 255));
+        txtLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtLabel.setText("¡Mueve tu plata de manera segura!");
+        jPanel3.add(txtLabel);
+        txtLabel.setBounds(160, 450, 290, 40);
+
+        SaldoLabel.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
+        SaldoLabel.setForeground(new java.awt.Color(255, 255, 255));
+        SaldoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        SaldoLabel.setText("$50.000");
+        jPanel3.add(SaldoLabel);
+        SaldoLabel.setBounds(140, 400, 330, 60);
+
+        EnviarDineroBoton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/bEnviar.png"))); // NOI18N
+        EnviarDineroBoton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                EnviarDineroBotonMousePressed(evt);
             }
         });
         jPanel3.add(EnviarDineroBoton);
-        EnviarDineroBoton.setBounds(359, 418, 110, 35);
+        EnviarDineroBoton.setBounds(340, 590, 200, 80);
 
-        SaldoLabel.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
-        SaldoLabel.setForeground(new java.awt.Color(255, 255, 255));
-        SaldoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        SaldoLabel.setText("Saldo:$");
-        jPanel3.add(SaldoLabel);
-        SaldoLabel.setBounds(210, 290, 190, 29);
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/cancelar.png"))); // NOI18N
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
+        jPanel3.add(jLabel8);
+        jLabel8.setBounds(550, 0, 50, 70);
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/user.png"))); // NOI18N
-        jPanel3.add(jLabel6);
-        jLabel6.setBounds(240, 150, 120, 110);
+        RecargarDineroBoton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/bRecargar.png"))); // NOI18N
+        RecargarDineroBoton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                RecargarDineroBotonMousePressed(evt);
+            }
+        });
+        jPanel3.add(RecargarDineroBoton);
+        RecargarDineroBoton.setBounds(60, 590, 200, 80);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Inicio.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/HomeFrame.png"))); // NOI18N
         jPanel3.add(jLabel1);
-        jLabel1.setBounds(0, 0, 600, 600);
+        jLabel1.setBounds(0, 0, 600, 700);
 
         getContentPane().add(jPanel3);
-        jPanel3.setBounds(0, 0, 600, 600);
+        jPanel3.setBounds(0, 0, 600, 700);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void RecargarDineroBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RecargarDineroBotonActionPerformed
-        new RecargaFrame(usuario, logica, this).setVisible(true);
-         this.setVisible(false);
-    }//GEN-LAST:event_RecargarDineroBotonActionPerformed
-
-    private void EnviarDineroBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarDineroBotonActionPerformed
-        new TransferenciaFrame(usuario, logica, this).setVisible(true);
-         this.setVisible(false);
-    }//GEN-LAST:event_EnviarDineroBotonActionPerformed
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
         int confirmacion = JOptionPane.showConfirmDialog(
@@ -264,21 +251,31 @@ public class HomeFrame extends javax.swing.JFrame {
     setLocation(x - mouseX, y - mouseY);  // TODO add your handling code here:
     }//GEN-LAST:event_jPanel3MouseDragged
 
+    private void RecargarDineroBotonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RecargarDineroBotonMousePressed
+        new RecargaFrame(usuario, logica, this).setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_RecargarDineroBotonMousePressed
+
+    private void EnviarDineroBotonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EnviarDineroBotonMousePressed
+        new TransferenciaFrame(usuario, logica, this).setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_EnviarDineroBotonMousePressed
+
   
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BienvenidaLabel;
-    private javax.swing.JButton EnviarDineroBoton;
-    private javax.swing.JButton RecargarDineroBoton;
+    private javax.swing.JLabel EnviarDineroBoton;
+    private javax.swing.JLabel RecargarDineroBoton;
     private javax.swing.JLabel SaldoLabel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel txtLabel;
+    private javax.swing.JLabel txtLabel1;
     // End of variables declaration//GEN-END:variables
 }

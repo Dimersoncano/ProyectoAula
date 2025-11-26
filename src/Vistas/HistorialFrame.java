@@ -5,6 +5,7 @@
 package Vistas;
 
 import Modelos.Usuario;
+import java.awt.Color;
 
 /**
  *
@@ -13,7 +14,7 @@ import Modelos.Usuario;
 public class HistorialFrame extends javax.swing.JFrame {
 
     private Usuario usuario;
-private HomeFrame homeFrame;
+    private HomeFrame homeFrame;
 
 public HistorialFrame(Usuario usuario, HomeFrame homeFrame) {
     this.usuario = usuario;
@@ -21,6 +22,21 @@ public HistorialFrame(Usuario usuario, HomeFrame homeFrame) {
     initComponents();
     setLocationRelativeTo(null);
     mostrarHistorial();
+    
+    jPanel2.setOpaque(false);
+    jPanel2.setBackground(new Color(0,0,0,0));
+
+    // Hacer transparente el JScrollPane
+    jScrollPane1.setOpaque(false);
+    jScrollPane1.getViewport().setOpaque(false);
+    jScrollPane1.setBorder(null);
+
+    // Hacer transparente el JTextArea
+    jTextArea1.setOpaque(false);
+    jTextArea1.setBackground(new Color(0,0,0,0));
+    jTextArea1.setBorder(null);
+    jTextArea1.setForeground(Color.WHITE); // o el color que uses
+    
 }
 
 private void mostrarHistorial() {
@@ -47,86 +63,73 @@ private void mostrarHistorial() {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        VolverBoton = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        VolverBoton = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(600, 450));
+        setMinimumSize(new java.awt.Dimension(600, 600));
         setUndecorated(true);
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setLayout(null);
 
-        VolverBoton.setBackground(new java.awt.Color(217, 217, 217));
-        VolverBoton.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
-        VolverBoton.setForeground(new java.awt.Color(255, 255, 255));
-        VolverBoton.setText("Volver");
-        VolverBoton.setBorder(null);
-        VolverBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                VolverBotonActionPerformed(evt);
+        VolverBoton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/bVolver.png"))); // NOI18N
+        VolverBoton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                VolverBotonMousePressed(evt);
             }
         });
         jPanel1.add(VolverBoton);
-        VolverBoton.setBounds(250, 380, 100, 40);
-
-        jLabel2.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Historial de transacciones");
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(80, 10, 450, 60);
+        VolverBoton.setBounds(220, 480, 160, 70);
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
 
         jTextArea1.setEditable(false);
-        jTextArea1.setBackground(new java.awt.Color(221, 220, 192));
         jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        jTextArea1.setForeground(new java.awt.Color(0, 0, 0));
+        jTextArea1.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jTextArea1.setRows(5);
+        jTextArea1.setBorder(null);
         jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(100, 100, 400, 240);
+        jPanel2.setBounds(50, 80, 510, 400);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Historial de Transacciones (1).png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Historial de Transacciones.png"))); // NOI18N
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 0, 600, 450);
+        jLabel1.setBounds(0, 0, 600, 600);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 600, 450);
+        jPanel1.setBounds(0, 0, 600, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void VolverBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverBotonActionPerformed
+    private void VolverBotonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VolverBotonMousePressed
         this.dispose();
-homeFrame.setVisible(true);
-    }//GEN-LAST:event_VolverBotonActionPerformed
+        homeFrame.setVisible(true);
+    }//GEN-LAST:event_VolverBotonMousePressed
 
     
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton VolverBoton;
+    private javax.swing.JLabel VolverBoton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
