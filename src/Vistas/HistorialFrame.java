@@ -6,6 +6,8 @@ package Vistas;
 
 import Modelos.Usuario;
 import java.awt.Color;
+import java.text.SimpleDateFormat;
+
 
 /**
  *
@@ -38,18 +40,52 @@ public HistorialFrame(Usuario usuario, HomeFrame homeFrame) {
     jTextArea1.setForeground(Color.WHITE); // o el color que uses
     
 }
-
 private void mostrarHistorial() {
+
+    // Creamos un "cuaderno" donde vamos a ir escribiendo todas las transacciones
+    // Este cuaderno se llama StringBuilder y sirve para juntar texto fácilmente
     StringBuilder historial = new StringBuilder();
+
+    // Creamos una herramienta que convierte la fecha en un texto legible
+    SimpleDateFormat formatoFecha = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+
+    // Recorremos cada transacción que tiene el usuario en su historial
     for (Modelos.Transaccion t : usuario.getHistorial()) {
-        historial.append(t.getTipo())
+        
+        // Convertimos la fecha de la transacción a un texto bonito usando el formato
+        String fechaFormateada = formatoFecha.format(t.getFecha());
+
+        // Vamos agregando cada parte de la transacción al cuaderno:
+        // 1. La fecha
+        // 2. El tipo de movimiento (recarga, envío)
+        // 3. El monto en dinero
+        // 4. La descripción de lo que pasó
+        historial.append(fechaFormateada)
+                 .append(" | ")
+                 .append(t.getTipo())
                  .append(" | $").append(t.getMonto())
                  .append(" | ").append(t.getDescripcion())
                  .append("\n");
     }
 
+    // Mostramos todo el cuaderno en el cuadro de texto de la ventana,
+    // para que el usuario pueda ver su historial completo.
     jTextArea1.setText(historial.toString());
 }
+
+
+/*private void mostrarHistorial() {
+    StringBuilder historial = new StringBuilder();
+    for (Modelos.Transaccion t : usuario.getHistorial()) {
+        
+        historial.append(t.getTipo())
+                 .append(" | $").append(t.getMonto())
+                 .append(" | ").append(t.getDescripcion())
+                 .append("\n");
+    } 
+
+    jTextArea1.setText(historial.toString());
+} */
     
     
     

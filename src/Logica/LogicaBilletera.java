@@ -70,7 +70,7 @@ public class LogicaBilletera {
             usuarios = null;
             return;
         }
-
+            // Se crea el archivo en esta parte:
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(archivo))) {
             EstadoSistema estado = (EstadoSistema) ois.readObject(); // Lo leemos
             this.usuarios = estado.getUsuarios(); // Recuperamos usuarios

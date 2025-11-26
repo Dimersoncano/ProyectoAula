@@ -2,6 +2,7 @@ package Modelos;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.text.SimpleDateFormat;
 
 /**
  * Representa una transacción dentro de la billetera virtual.
